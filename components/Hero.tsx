@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
             </h2>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
               Full-Stack & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-white">AI/ML Enthusiast</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-white whitespace-nowrap">AI/ML Enthusiast</span>
             </h1>
           </div>
           
