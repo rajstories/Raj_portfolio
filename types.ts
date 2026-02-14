@@ -18,6 +18,8 @@ export interface Project {
   problem?: string;
   solution?: string;
   audience?: string;
+  demoVideo?: string;
+  websiteLink?: string;
 }
 
 export interface Skill {

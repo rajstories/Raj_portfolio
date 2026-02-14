@@ -1,15 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Github, X, Target, Zap, Users, Lightbulb } from 'lucide-react';
+import { ArrowUpRight, Github, X, Target, Zap, Users, Lightbulb, Play, Globe, ExternalLink } from 'lucide-react';
 import { Project } from '../types';
 
 // Expanded Project Data
 const PROJECT_DATA: Project[] = [
   { 
     id: 1, 
+    title: "Prolytic", 
+    category: "AI Reasoning Engine", 
+    description: "The future of content creation. An AI-native workspace that acts as a Synthetic Creative Team for creators and brands.",
+    image: "/projects/prolytic.png",
+    tags: ["Gemini 3.0", "React", "Node.js", "Framer Motion"],
+    link: "https://github.com/rajstories/Prolytic",
+    websiteLink: "https://prolytic.in",
+    demoVideo: "https://youtu.be/dfAV6JnDUes?si=3KFah3rH4VsogYjA",
+    longDescription: "Prolytic is an AI-native workspace that acts as a Synthetic Creative Team for creators and brands. It doesn't just 'edit' video; it reasons about it using Google Gemini 3 to solve problems across the entire lifecycle.",
+    problem: "Creators struggle with 'Algorithm Anxiety,' spending days on content that fails. Existing AI tools are too generic and don't provide strategic reasoning.",
+    solution: "A 'Reasoning Engine' that features an Audience Lab (Shadow Simulator) where AI personas watch and critique your video in real-time, predicting retention drop-offs before you post.",
+    audience: "Content Creators, Marketing Agencies, Brands, YouTube Professionals."
+  },
+  { 
+    id: 2, 
     title: "ThreatPilot", 
     category: "Agentic AI SOC", 
     description: "Autonomous multi-agent system that detects threats, correlates 10K+ historical attacks, and executes remediation without human intervention.",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+    image: "/projects/threatpilot.png",
     tags: ["Node.js", "LangChain", "OpenAI", "Grafana Loki"],
     link: "https://github.com/rajstories/ThreatPIlot_Agentic_AI_Workflow",
     longDescription: "ThreatPilot is an autonomous Security Operations Center (SOC) system designed to revolutionize how organizations handle cybersecurity threats. By leveraging Agentic AI, it moves beyond simple alert logging to active investigation and remediation.",
@@ -18,7 +33,22 @@ const PROJECT_DATA: Project[] = [
     audience: "Enterprise Security Teams, SOC Analysts, CISOs."
   },
   { 
-    id: 2, 
+    id: 3, 
+    title: "Deal Flow AI", 
+    category: "AI Investment Analyst", 
+    description: "Invest Smarter. Decide Faster. Transforms pitch deck analysis from a 20-hour grind into a 5-minute science.",
+    image: "/projects/dealflow.png",
+    tags: ["Gemini 3 Pro", "React", "Express", "Multimodal"],
+    link: "https://github.com/rajstories/DealFlowAI",
+    websiteLink: "http://deal-flow-iota.vercel.app/",
+    demoVideo: "https://youtu.be/wnpV1f2TXT4?si=ofBGJ-7mcMcwn0YJ",
+    longDescription: "DealFlow AI is an autonomous investment analyst powered by Gemini 3 that scores startups across 6 categories with institutional-grade rigor.",
+    problem: "Angel investors drown in pitch decks (50+ monthly), spending 20+ hours on analysis and often missing red flags due to fatigue or human error.",
+    solution: "Deep Pitch Deck Analysis with a 'Red Flag Detector' that fact-checks claims against LinkedIn and Crunchbase using Gemini 3's grounded search and function calling.",
+    audience: "Angel Investors, VC Firms, Startup Accelerators."
+  },
+  { 
+    id: 4, 
     title: "SAKSHAM", 
     category: "Disaster Mgmt (SIH'25)", 
     description: "Real-time monitoring system for NDMA to track disaster management trainings. Features PWA, Dashboard, and ML predictions.",
@@ -31,7 +61,7 @@ const PROJECT_DATA: Project[] = [
     audience: "Government Bodies (NDMA), Field Trainers, Emergency Response Coordinators."
   },
   { 
-    id: 3, 
+    id: 5, 
     title: "BuildDost", 
     category: "AI Tool", 
     description: "AI-powered platform that generates full-stack web apps from natural language descriptions using OpenAI.",
@@ -44,7 +74,7 @@ const PROJECT_DATA: Project[] = [
     audience: "Solo Developers, Hackathon Teams, Non-technical Entrepreneurs."
   },
   { 
-    id: 4, 
+    id: 6, 
     title: "Apna Thela", 
     category: "Social Impact", 
     description: "Multilingual, voice-driven business management app for street vendors with offline support and voice-first UI.",
@@ -55,32 +85,6 @@ const PROJECT_DATA: Project[] = [
     problem: "Street vendors often rely on memory or disorganized paper scraps for bookkeeping. Existing accounting apps are too complex and text-heavy for this demographic.",
     solution: "We utilized the Web Speech API to build a completely voice-navigable interface. The app supports multiple local languages and works offline to suit the connectivity constraints of the target user.",
     audience: "Street Vendors, Small-scale Hawkers, Micro-entrepreneurs."
-  },
-  { 
-    id: 5, 
-    title: "Nexus", 
-    category: "Hackathon Platform", 
-    description: "Complete hackathon management system with role-based dashboards, real-time collaboration, and evaluation.",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop",
-    tags: ["React", "Azure", "Firebase", "Socket.IO"],
-    link: "https://github.com/rajstories/Nexus-hackathon-platform",
-    longDescription: "Nexus is an all-in-one platform for organizing, managing, and evaluating large-scale hackathons effortlessly.",
-    problem: "Hackathon organizers juggle multiple tools for registration, submission, and judging, leading to data silos and poor participant experience.",
-    solution: "Built a monolithic platform with role-based access control (RBAC). Used WebSockets for real-time announcements and a Firebase backend for scalable real-time judging updates.",
-    audience: "University Clubs, Tech Communities, Corporate Event Organizers."
-  },
-  { 
-    id: 6, 
-    title: "Pooja Academy", 
-    category: "EdTech", 
-    description: "Full-stack education platform for JEE/NEET coaching with video lectures, results, and SMS notifications.",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
-    tags: ["Node.js", "PostgreSQL", "Razorpay"],
-    link: "https://github.com/rajstories/EducationPlatform",
-    longDescription: "Pooja Academy is a dedicated Learning Management System (LMS) tailored for coaching institutes focusing on competitive exams like JEE and NEET.",
-    problem: "Coaching centers often lack affordable digital infrastructure to host video lectures, track student performance granularly, and communicate with parents.",
-    solution: "Developed a secure video streaming portal with PostgreSQL for structured student data. Integrated SMS gateways for instant parental notifications regarding attendance and results.",
-    audience: "Coaching Institutes, Tutors, Students preparing for competitive exams."
   }
 ];
 
@@ -243,18 +247,46 @@ const Projects: React.FC = () => {
                     </div>
                  </div>
 
-                 {selectedProject.link && (
-                     <a 
-                       href={selectedProject.link} 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       className="flex items-center gap-2 bg-white text-black hover:bg-primary hover:text-white px-6 py-3 rounded-full font-bold transition-all duration-300 group"
-                     >
-                       <Github className="w-5 h-5" />
-                       View Repository
-                       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                     </a>
-                 )}
+                 <div className="flex flex-wrap gap-4 w-full sm:w-auto">
+                   {selectedProject.link && (
+                       <a 
+                         href={selectedProject.link} 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="flex flex-1 sm:flex-none items-center justify-center gap-2 bg-white/5 text-white hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-bold transition-all duration-300 group"
+                       >
+                         <Github className="w-5 h-5" />
+                         Repo
+                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                       </a>
+                   )}
+
+                   {selectedProject.websiteLink && (
+                       <a 
+                         href={selectedProject.websiteLink} 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="flex flex-1 sm:flex-none items-center justify-center gap-2 bg-primary text-white hover:bg-primary/90 px-6 py-3 rounded-xl font-bold transition-all duration-300 group shadow-lg shadow-primary/20"
+                       >
+                         <Globe className="w-5 h-5" />
+                         Live Site
+                         <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                       </a>
+                   )}
+
+                   {selectedProject.demoVideo && (
+                       <a 
+                         href={selectedProject.demoVideo} 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="flex flex-1 sm:flex-none items-center justify-center gap-2 bg-red-600 text-white hover:bg-red-700 px-6 py-3 rounded-xl font-bold transition-all duration-300 group shadow-lg shadow-red-600/20"
+                       >
+                         <Play className="w-5 h-5 fill-current" />
+                         Demo
+                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                       </a>
+                   )}
+                 </div>
               </div>
 
             </div>
