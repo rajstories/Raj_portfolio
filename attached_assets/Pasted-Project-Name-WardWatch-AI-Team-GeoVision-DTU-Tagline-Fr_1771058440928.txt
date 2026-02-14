@@ -1,0 +1,65 @@
+Project Name: WardWatch AI
+Team: GeoVision (DTU)
+Tagline: From Data Blind to Action Ready.
+
+1. Executive Summary
+WardWatch AI is a first-of-its-kind, hyper-local pollution management ecosystem designed for the Municipal Corporation of Delhi (MCD). While current systems rely on a single city-wide AQI average, WardWatch AI creates a closed-loop governance system that provides granular, real-time intelligence for all 272 wards of Delhi. It connects 30 million citizens directly to the government command center, transforming passive residents into active ward monitors while giving officials the predictive tools to stop pollution before it spikes.
+
+2. The Problem: The "One-Number" Fallacy
+Delhi currently operates on a "City Average" AQI model. This creates a dangerous data blind spot:
+
+Lack of Granularity: A city-wide AQI of 300 hides specific wards where the AQI might be 500+ (Severe).
+
+Reactive Governance: Measures (like GRAP stages) are implemented only after the city becomes a gas chamber.
+
+No Attribution: Officials cannot distinguish if a spike is caused by vehicular traffic, industrial waste, or local stubble burning.
+
+Zero Accountability: There is no mechanism to track if deployed resources (like smog guns) actually reduced pollution in a specific area.
+
+3. The Solution: A Dual-Interface Ecosystem
+WardWatch AI bridges the gap between citizens and the government through two synchronized platforms:
+
+A. The Citizen Mobile App: "The Eyes of the City"
+Safe Commute Widget: Unlike Google Maps which shows the fastest route, WardWatch calculates the "Cleanest Route." It helps users navigate through "Green Zones" to minimize toxic exposure during their commute.
+
+AI-Verified Reporting: Citizens can snap photos of pollution violations (e.g., trash burning, construction dust). A custom Multilayer Perceptron (MLP) model instantly analyzes the image to filter out fog, haze, or blurry shots, ensuring only verified, high-confidence reports reach the government.
+
+Relief Forecast: Provides intraday predictions (e.g., "Air quality will improve by 6:00 PM due to wind shift"), allowing citizens to plan outdoor activities safely.
+
+Gamification: Citizens earn "Green Credits" for verified reports, competing on a "Ward Protector" leaderboard to incentivize civic duty.
+
+B. The Government Command Center: "Precision Governance"
+272-Ward GIS Dashboard: A live, color-coded heatmap tracking pollution sources across every individual ward. Officials can pinpoint exact hotspots instantly.
+
+Active Alert System: Citizen reports appear as verified alerts with precise GPS coordinates on the dashboard, enabling targeted dispatch of manpower.
+
+Niti-AI Policy Simulator: A powerful decision-support tool. Before ordering a ban (e.g., Construction Ban), officials can simulate the policy to see:
+
+Predicted Impact: "AQI will drop by 40 points."
+
+Economic Cost: "Loss of ₹5 Crores/day."
+
+Accountability Engine: The system logs "AQI Before" vs. "AQI After" for every intervention (e.g., water sprinkling), proving the efficacy of government spending.
+
+4. Key Innovations & USPs
+Zero Infrastructure Cost (Plug & Play): Unlike competitors proposing expensive IoT sensor installations (costing ₹500 Cr+), WardWatch AI is a software-first solution. It integrates with existing CPCB/DPCC sensors and APIs, making it deployable in just 3 months at a fraction of the cost.
+
+Human-in-the-Loop Verification: While AI filters the images, the government dashboard allows a human official to perform a final validation before resources are dispatched, preventing false alarms.
+
+Viral Alert Network: The system can automatically generate and publish official alerts to WhatsApp Channels and Social Media within 30 seconds, countering misinformation.
+
+Data Sovereignty: The system runs on local quantized Large Language Models (LLMs), ensuring sensitive government data never leaves secure servers.
+
+5. Technical Stack
+Artificial Intelligence: Multilayer Perceptron (MLP) for image verification; Time-Series Analysis for 48-hour AQI forecasting.
+
+Frontend: React Native (Citizen App), React.js (Government Dashboard).
+
+Backend: Node.js, FastAPI.
+
+Mapping: Mapbox GL JS for interactive ward-level heatmaps.
+
+Cloud/Infra: Scalable architecture capable of handling 10M+ concurrent users.
+
+6. Impact Goal
+To move Delhi from "Reactive Reporting" to "Proactive Action," potentially saving thousands of lives and proving that technology can help a city breathe again.
