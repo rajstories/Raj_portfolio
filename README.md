@@ -1,6 +1,7 @@
 # ⚡ Raj | Portfolio
 
-![Portfolio Preview](https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop)
+<img width="1277" height="709" alt="image" src="https://github.com/user-attachments/assets/16cff184-f525-4dcc-8026-d6d3b7747bc6" />
+
 
 > **Full-Stack Developer & AI/ML Enthusiast**  
 > _"Building intelligent solutions that solve real-world problems."_
