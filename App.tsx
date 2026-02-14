@@ -5,18 +5,25 @@ import Features from './components/Features';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import ContentCreation from './components/ContentCreation';
+import ProjectGallery from './components/ProjectGallery';
 import { SectionId } from './types';
 
 function App() {
   const [activeSection, setActiveSection] = useState<SectionId>('home');
+  const [showGallery, setShowGallery] = useState(false);
 
   const handleNavigate = (id: SectionId) => {
+    if (showGallery) setShowGallery(false);
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (showGallery) {
+    return <ProjectGallery onBack={() => setShowGallery(false)} />;
+  }
 
   return (
     <div className="bg-black text-white min-h-screen font-sans selection:bg-primary selection:text-white">
@@ -27,7 +34,7 @@ function App() {
         <Features />
         <Experience />
         <ContentCreation />
-        <Projects />
+        <Projects onViewAll={() => setShowGallery(true)} />
         
         {/* Connect section */}
         <section id="connect" className="py-32 bg-gradient-to-t from-[#2A1810] to-black flex flex-col items-center justify-center text-center px-6">

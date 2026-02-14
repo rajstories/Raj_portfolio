@@ -91,7 +91,11 @@ const PROJECT_DATA: Project[] = [
   }
 ];
 
-const Projects: React.FC = () => {
+interface ProjectsProps {
+  onViewAll?: () => void;
+}
+
+const Projects: React.FC<ProjectsProps> = ({ onViewAll }) => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   // Lock body scroll when modal is open
@@ -114,9 +118,17 @@ const Projects: React.FC = () => {
                 <h3 className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Portfolio</h3>
                 <h2 className="text-4xl md:text-5xl font-bold text-white">Featured <span className="text-gray-500">Work</span></h2>
             </div>
-            <a href="https://github.com/rajstories" target="_blank" rel="noopener noreferrer" className="text-white border-b border-primary pb-1 hover:text-primary transition-colors flex items-center gap-2">
-                View GitHub <ArrowUpRight className="w-4 h-4" />
-            </a>
+            <div className="flex gap-6">
+              <button 
+                onClick={onViewAll}
+                className="text-white border-b border-primary pb-1 hover:text-primary transition-colors flex items-center gap-2"
+              >
+                  View All Projects <ArrowUpRight className="w-4 h-4" />
+              </button>
+              <a href="https://github.com/rajstories" target="_blank" rel="noopener noreferrer" className="text-white border-b border-primary pb-1 hover:text-primary transition-colors flex items-center gap-2">
+                  View GitHub <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

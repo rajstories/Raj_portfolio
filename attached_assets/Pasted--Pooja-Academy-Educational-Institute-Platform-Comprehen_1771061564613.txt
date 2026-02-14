@@ -1,0 +1,52 @@
+🎓 Pooja Academy - Educational Institute Platform
+Comprehensive Educational Management System for Science & Commerce Coaching
+
+Empowering 1000+ students in JEE & NEET preparation with modern technology
+
+Live Demo • Documentation • Contact
+
+📚 About Pooja Academy
+Pooja Academy is a cutting-edge web application designed for our educational institute in Kirari, Delhi (near Haridas Vatika). Led by Ram Sir with 10+ years of expertise in Physics & Chemistry, we provide structured coaching for Classes 9-12 with a focus on Science and Commerce streams.
+
+✨ Key Features
+🔧 Content Management System
+Study Notes Upload - Organized chapter-wise content management
+Video Lecture Streaming - Progress tracking and playback features
+Subject Organization - Physics, Chemistry, Mathematics, Biology, Accountancy, Business Studies, Economics
+📊 Admin Dashboard & Analytics
+Student Management - University-level tracking system
+Attendance Monitoring - Real-time attendance management
+Results & Leaderboards - Visual podium displays for top 3 students
+Progress Tracking - Gamified learning journey with achievements
+🔐 Authentication & Security
+Multi-Login Options - Phone/Email authentication
+Role-Based Access - Student and admin permissions
+Session Management - Secure cookie handling
+📱 Communication Features
+SMS Notifications - Automated student alerts via Twilio
+Real-time Updates - Instant result notifications
+Contact System - Structured inquiry management
+🗺️ Location & Integration
+Google Maps - Institute location integration
+Payment Gateway - Razorpay for course enrollments
+WhatsApp Integration - Quick student support
+🚀 Tech Stack
+Frontend
+
+React 18 with TypeScript
+Tailwind CSS + shadcn/ui components
+Wouter for routing
+TanStack Query for state management
+React Hook Form + Zod validation
+Backend
+
+Node.js + Express.js
+PostgreSQL with Drizzle ORM
+Express Sessions for authentication
+WebSocket for real-time features
+External Services
+
+Twilio (SMS notifications)
+Razorpay (Payments)
+Google Maps API
+Email services
