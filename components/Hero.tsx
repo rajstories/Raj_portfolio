@@ -1,278 +1,168 @@
-import React, { useEffect, useState } from 'react';
-import { Mail, ArrowRight, Github, Linkedin, Instagram, Atom, Figma } from 'lucide-react';
+import { ArrowRight, Atom, Github, Linkedin, Mail, Send } from 'lucide-react';
 
-// -----------------------------------------------------------------------------
-// ✨ CUSTOMIZE YOUR CHARACTER
-// -----------------------------------------------------------------------------
-// Updated to a reliable 3D Avatar URL (Microsoft Fluent 3D Emoji)
-// This is a stable, high-quality 3D render of a technologist.
-const USER_IMAGE_URL = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Man%20Technologist.png"; 
-// -----------------------------------------------------------------------------
+const PORTRAIT_IMAGE = '/images/raj-hero-portrait.png';
 
-const Hero: React.FC = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+const SOCIAL_LINKS: Record<'linkedin' | 'github' | 'leetcode' | 'email', string> = {
+  linkedin: 'https://www.linkedin.com/in/rajhub/',
+  github: 'https://github.com/rajstories/',
+  leetcode: '',
+  email: 'mailto:rajshrivastav283815@gmail.com',
+} as const;
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
-      setMousePos({ x, y });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const parallax = (factor: number) => ({
-    transform: `translate(${mousePos.x * factor * 20}px, ${mousePos.y * factor * 20}px)`,
-  });
-
+function LeetCodeIcon() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black selection:bg-primary selection:text-white perspective-[1200px]">
-      
-      {/* 1. Background Elements */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
-
-      {/* Large Glowing Number/Text */}
-      <div 
-        className="absolute top-[20%] left-[-2%] text-[300px] lg:text-[400px] font-bold text-transparent pointer-events-none opacity-20 select-none hidden lg:block"
-        style={{ 
-          WebkitTextStroke: '2px #FF6B35',
-          filter: 'drop-shadow(0 0 50px rgba(255,107,53,0.2))',
-          fontFamily: 'sans-serif',
-          zIndex: 0,
-          ...parallax(-0.5)
-        }}
-      >
-        SIH
-      </div>
-
-      {/* Lighting */}
-      <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
-      
-      {/* Geometric Triangles */}
-      <div className="absolute top-1/4 left-1/3 w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[25px] border-b-primary/20 rotate-45 animate-float-slow" />
-      <div className="absolute bottom-1/3 right-1/4 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[20px] border-b-white/10 -rotate-12 animate-float-delayed" />
-
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
-        
-        {/* LEFT CONTENT */}
-        <div className="space-y-8 max-w-2xl relative z-20">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              <span className="text-primary text-xs font-semibold tracking-wide uppercase">SIH'25 Runner Up</span>
-            </div>
-
-            <h2 className="text-2xl md:text-3xl font-medium text-gray-200">
-              Hey there, I'm <span className="text-primary font-bold">Raj</span>
-            </h2>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-              Full-Stack & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-white whitespace-nowrap">AI/ML Enthusiast</span>
-            </h1>
-          </div>
-          
-          <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg border-l-2 border-primary/30 pl-6">
-            B.Tech CSE @ DTU. Building intelligent solutions that solve real-world problems. 
-            <span className="block mt-2 text-white/80 font-medium">15+ Hackathons • 5x Finalist • Cybersecurity Intern</span>
-          </p>
-          
-          <div className="flex flex-wrap items-center gap-6 pt-4">
-            <button 
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-primary hover:bg-[#e55a2b] text-white text-lg font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,107,53,0.3)] hover:shadow-[0_4px_30px_rgba(255,107,53,0.5)] active:scale-95 flex items-center gap-2 group"
-            >
-              View My Work
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            
-            <div className="flex items-center gap-4 pl-4">
-                <SocialLink icon={Github} href="https://github.com/rajstories" />
-                <SocialLink icon={Linkedin} href="https://www.linkedin.com/in/rajhub/" />
-                <SocialLink icon={Instagram} href="https://www.instagram.com/the_rajstories" />
-            </div>
-          </div>
-        </div>
-
-        {/* RIGHT VISUAL: 3D Character & Icons */}
-        <div className="relative h-[600px] w-full hidden lg:flex items-center justify-center perspective-[1000px]">
-            
-            {/* Orbital Paths (Visual Guides) */}
-            <div className="absolute w-[500px] h-[500px] border border-white/5 rounded-full animate-[spin_60s_linear_infinite]" />
-            <div className="absolute w-[350px] h-[350px] border border-white/5 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-            
-            {/* 3D CHARACTER */}
-            <div 
-              className="relative z-20 w-[450px] h-[450px] transition-transform duration-100 ease-out flex items-center justify-center"
-              style={{
-                ...parallax(0.5), // Subtle movement
-              }}
-            >
-                <div className="relative w-full h-full animate-float-character flex items-center justify-center">
-                    {/* Back Glow - Ambient */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/10 blur-[80px] rounded-full -z-10" />
-
-                    {/* Character Image */}
-                    <img 
-                        src={USER_IMAGE_URL} 
-                        alt="3D Developer Avatar" 
-                        className="max-w-[100%] max-h-[100%] w-auto h-auto object-contain drop-shadow-[0_20px_50px_rgba(255,107,53,0.25)]"
-                        style={{
-                            filter: 'contrast(1.1) brightness(1.05)',
-                            transform: 'scale(1.1) translateY(10px)' 
-                        }}
-                    />
-                </div>
-            </div>
-
-            {/* FLOATING ICONS - Positioned relative to center */}
-            
-            {/* 1. TypeScript (Orange Shield) */}
-            <FloatingIcon 
-              className="absolute top-[15%] right-[15%]" 
-              delay="0s" 
-              parallaxX={mousePos.x * 2.5} 
-              parallaxY={mousePos.y * 2}
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#3178C6] to-[#235a96] rounded-[30%] flex items-center justify-center shadow-lg shadow-blue-500/30 relative overflow-hidden" style={{ clipPath: 'polygon(50% 0, 100% 15%, 100% 85%, 50% 100%, 0 85%, 0 15%)' }}>
-                <span className="text-white font-black text-xl z-10">TS</span>
-                <div className="absolute inset-0 bg-white/10 skew-x-12 -translate-x-4"></div>
-              </div>
-            </FloatingIcon>
-
-            {/* 2. Python (Blue/Yellow) */}
-            <FloatingIcon 
-              className="absolute top-[45%] left-[5%]" 
-              delay="1.2s" 
-              parallaxX={mousePos.x * -2} 
-              parallaxY={mousePos.y * -1.5}
-            >
-              <div className="w-14 h-14 bg-gradient-to-br from-[#3776AB] to-[#26537a] rounded-[30%] flex items-center justify-center shadow-lg shadow-blue-500/30 relative overflow-hidden">
-                 <span className="text-white font-black text-lg z-10">Py</span>
-              </div>
-            </FloatingIcon>
-
-            {/* 3. JavaScript (Yellow Square) */}
-            <FloatingIcon 
-              className="absolute bottom-[15%] left-[30%]" 
-              delay="2.5s" 
-              parallaxX={mousePos.x * 1.5} 
-              parallaxY={mousePos.y * 3}
-            >
-              <div className="w-14 h-14 bg-[#F7DF1E] rounded-xl flex items-center justify-center shadow-lg shadow-yellow-400/20 transform -rotate-6">
-                 <span className="text-black font-black text-xl">JS</span>
-              </div>
-            </FloatingIcon>
-
-            {/* 4. React (Atom) */}
-            <FloatingIcon 
-              className="absolute top-[20%] left-[20%]" 
-              delay="1.8s" 
-              parallaxX={mousePos.x * -1.2} 
-              parallaxY={mousePos.y * -1.2}
-            >
-              <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#61DAFB]/30 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(97,218,251,0.3)] group hover:bg-[#61DAFB]/10 transition-colors">
-                 <Atom className="w-10 h-10 text-[#61DAFB] animate-[spin_10s_linear_infinite]" />
-              </div>
-            </FloatingIcon>
-
-            {/* 5. Node.js (Green Hex) */}
-            <FloatingIcon 
-              className="absolute bottom-[20%] right-[10%]" 
-              delay="3.2s" 
-              parallaxX={mousePos.x * 3} 
-              parallaxY={mousePos.y * 2}
-            >
-               <div className="w-16 h-16 bg-[#339933] flex items-center justify-center shadow-lg shadow-green-500/20" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
-                 <span className="text-white font-bold text-sm tracking-tighter">NODE</span>
-              </div>
-            </FloatingIcon>
-
-            {/* 6. Figma */}
-            <FloatingIcon 
-              className="absolute top-[10%] right-[35%]" 
-              delay="0.5s" 
-              parallaxX={mousePos.x * 2} 
-              parallaxY={mousePos.y * 1}
-            >
-              <div className="w-12 h-12 bg-[#1e1e1e] border border-white/10 rounded-2xl flex items-center justify-center shadow-lg">
-                 <Figma className="w-6 h-6 text-purple-400" />
-              </div>
-            </FloatingIcon>
-
-        </div>
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20 pointer-events-none opacity-50">
-        <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 animate-pulse">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
-      </div>
-
-      <style>{`
-        @keyframes float-character {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(1deg); }
-        }
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
-        }
-        .animate-float-character {
-          animation: float-character 6s ease-in-out infinite;
-        }
-        .animate-float-slow {
-          animation: float-slow 8s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 7s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-      `}</style>
-    </section>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14.3 3.3 7.1 10.5a4.8 4.8 0 0 0 0 6.8l2.4 2.4a4.8 4.8 0 0 0 6.8 0l1.9-1.9-2.1-2.1-1.9 1.9a1.8 1.8 0 0 1-2.6 0l-2.4-2.4a1.8 1.8 0 0 1 0-2.6l7.2-7.2-2.1-2.1Z" fill="currentColor" />
+      <path d="M9.8 10.6h9.5v3H9.8z" fill="#f7a41d" />
+    </svg>
   );
-};
-
-// Helper Components
-
-const SocialLink = ({ icon: Icon, href }: { icon: any, href: string }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10 transition-all duration-300 transform hover:scale-110">
-    <Icon className="w-4 h-4" />
-  </a>
-);
-
-interface FloatingIconProps {
-  children: React.ReactNode;
-  className: string;
-  delay: string;
-  parallaxX: number;
-  parallaxY: number;
 }
 
-const FloatingIcon: React.FC<FloatingIconProps> = ({ children, className, delay, parallaxX, parallaxY }) => (
-  <div 
-    className={`${className} z-30 transition-transform duration-200 ease-out`}
-    style={{ 
-        transform: `translate(${parallaxX * 10}px, ${parallaxY * 10}px)`,
-    }}
-  >
-    <div 
-        className="animate-float-slow hover:scale-110 transition-transform duration-300" 
-        style={{ animationDelay: delay }}
-    >
-        {children}
+function SocialLinks() {
+  return (
+    <div className="hero-socials" aria-label="Social links">
+      <span className="hero-socials__label">Let&apos;s connect</span>
+      <a className="hero-social hero-social--linkedin" href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn profile" title="LinkedIn">
+        <Linkedin aria-hidden="true" />
+      </a>
+      <a className="hero-social hero-social--github" href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" aria-label="GitHub profile" title="GitHub">
+        <Github aria-hidden="true" />
+      </a>
+      {SOCIAL_LINKS.leetcode ? (
+        <a className="hero-social hero-social--leetcode" href={SOCIAL_LINKS.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode profile" title="LeetCode">
+          <LeetCodeIcon />
+        </a>
+      ) : (
+        <button className="hero-social hero-social--leetcode" type="button" disabled aria-label="LeetCode profile URL not provided" title="Add your LeetCode URL in Hero.tsx">
+          <LeetCodeIcon />
+        </button>
+      )}
+      <a className="hero-social hero-social--email" href={SOCIAL_LINKS.email} aria-label="Send Raj an email" title="Email">
+        <Mail aria-hidden="true" />
+      </a>
     </div>
-  </div>
-);
+  );
+}
 
-export default Hero;
+function PythonLogo() {
+  return (
+    <span className="python-logo" aria-hidden="true">
+      <span className="python-logo__blue">●</span>
+      <span className="python-logo__yellow">●</span>
+    </span>
+  );
+}
+
+function TensorFlowLogo() {
+  return (
+    <svg className="tensorflow-logo" viewBox="0 0 48 48" aria-hidden="true">
+      <path fill="#ff7b24" d="m24 4 18 10.4v8.2L28.1 14.7v28.1L24 45l-4.1-2.2V14.7L6 22.6v-8.2L24 4Z" />
+      <path fill="#ff7b24" d="m31.5 22 10.5 6v8l-10.5-6v-8ZM6 28l10.5-6v8L6 36v-8Z" opacity=".84" />
+    </svg>
+  );
+}
+
+function TechnologyOrbit() {
+  return (
+    <>
+      <div className="hero-orbit" aria-hidden="true" />
+      <div className="hero-backdrop hero-backdrop--blue" aria-hidden="true" />
+      <div className="hero-backdrop hero-backdrop--lavender" aria-hidden="true" />
+      <svg className="hero-connectors" viewBox="0 0 720 650" aria-hidden="true">
+        <path d="M154 84c-26 50-35 111 3 180 22 40 58 66 80 115" />
+        <path d="M456 127c77 21 128 42 183 70" />
+        <path d="M596 194c-8 90 3 174-25 260" />
+        <circle cx="155" cy="85" r="7" className="node node--blue" />
+        <circle cx="198" cy="276" r="6" className="node node--orange" />
+        <circle cx="593" cy="194" r="7" className="node node--pink" />
+      </svg>
+
+      <div className="tech-badge tech-badge--react" aria-label="React">
+        <Atom />
+      </div>
+      <div className="tech-badge tech-badge--python" aria-label="Python">
+        <PythonLogo />
+      </div>
+      <div className="tech-badge tech-badge--typescript" aria-label="TypeScript">
+        <span>TS</span>
+      </div>
+      <div className="tech-badge tech-badge--node" aria-label="Node.js">
+        <span>JS</span>
+      </div>
+      <div className="tech-badge tech-badge--tensorflow" aria-label="TensorFlow">
+        <TensorFlowLogo />
+      </div>
+
+      <div className="hero-sparkle" aria-hidden="true">✦</div>
+      <div className="hero-sparkle-dots" aria-hidden="true" />
+    </>
+  );
+}
+
+function HeroVisual() {
+  return (
+    <div className="hero-visual" aria-label="Raj's developer portrait with technology logos">
+      <TechnologyOrbit />
+      <img
+        className="hero-portrait"
+        src={PORTRAIT_IMAGE}
+        alt="Raj seated behind a laptop wearing a navy hoodie"
+        onError={(event) => {
+          event.currentTarget.style.display = 'none';
+        }}
+      />
+      <div className="hero-floor-glow" aria-hidden="true" />
+    </div>
+  );
+}
+
+function HeroContent() {
+  const scrollToProjects = () => {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="hero-content">
+      <div className="hero-credential">
+        <span aria-hidden="true">ϟ</span>
+        B.Tech CSE @ DTU
+      </div>
+
+      <h1 className="hero-title">
+        <span>Hi, I&apos;m Raj</span>
+        <span>Full-Stack &amp;</span>
+        <span>AI/ML Enthusiast</span>
+      </h1>
+
+      <p className="hero-description">
+        I build intelligent, scalable and user-centric products that<br className="hero-description__break" />
+        solve <strong>real-world problems</strong> with clean code and impact.
+      </p>
+
+      <div className="hero-actions">
+        <button className="hero-button hero-button--primary" type="button" onClick={scrollToProjects}>
+          <span>View My Work</span>
+          <ArrowRight aria-hidden="true" />
+        </button>
+        <a className="hero-button hero-button--secondary" href="#connect">
+          <Send aria-hidden="true" />
+          <span>Let&apos;s Connect</span>
+        </a>
+      </div>
+
+      <SocialLinks />
+    </div>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section id="home" className="portfolio-hero">
+      <div className="hero-side-rule" aria-hidden="true"><span /></div>
+      <div className="hero-shell">
+        <HeroContent />
+        <HeroVisual />
+      </div>
+    </section>
+  );
+}

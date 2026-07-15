@@ -5,19 +5,32 @@ export interface NavItem {
   label: string;
 }
 
+export type ProjectStatus =
+  | 'Live Prototype'
+  | 'Production'
+  | 'In Development'
+  | 'Completed'
+  | 'Open Source'
+  | 'Case Study';
+
 export interface Project {
   id: number;
+  slug: string;
   title: string;
   category: string;
+  categoryValue: string;
+  role: string;
+  status: ProjectStatus;
   description: string;
   image: string;
+  imageAlt: string;
   tags: string[];
   link?: string;
-  // Detailed fields for Modal
-  longDescription?: string;
-  problem?: string;
-  solution?: string;
-  audience?: string;
+  longDescription: string;
+  problem: string;
+  solution: string;
+  audience: string;
+  whyItMatters: string;
   demoVideo?: string;
   websiteLink?: string;
 }

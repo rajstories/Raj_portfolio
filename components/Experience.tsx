@@ -1,85 +1,124 @@
-import React from 'react';
-import { Briefcase, Trophy, Award } from 'lucide-react';
+import { BriefcaseBusiness, CalendarDays, ExternalLink } from 'lucide-react';
 
-const Experience: React.FC = () => {
+type ExperienceItem = {
+  id: string;
+  role: string;
+  company: string;
+  logo: 'lxdia' | 'cdac';
+  tone: 'orange' | 'blue';
+  date?: string;
+  duration?: string;
+  bullets: string[];
+};
+
+const EXPERIENCE_ITEMS: ExperienceItem[] = [
+  {
+    id: 'lxdia-ai',
+    role: 'AI Engineer Intern',
+    company: 'LXDIA AI Pvt. Limited',
+    logo: 'lxdia',
+    tone: 'orange',
+    date: 'Apr 2026 – Jul 2026',
+    duration: '3 months',
+    bullets: [
+      'Built and deployed ML/AI models and orchestrated LLM-based agent workflows for production use cases, working across the full pipeline from data to deployment.',
+      'Engineered an automated end-to-end content pipeline — from research to script generation — analyzing trending topics across Instagram, Twitter (X), and Reddit.',
+      'Developed AI voice-calling agents for automated, real-time conversational workflows.',
+    ],
+  },
+  {
+    id: 'cdac',
+    role: 'Cybersecurity Intern',
+    company: 'Centre for Development of Advanced Computing (CDAC)',
+    logo: 'cdac',
+    tone: 'blue',
+    bullets: [
+      'Worked on security analysis and vulnerability assessment.',
+      'Gained hands-on experience with industry-standard security tools and protocols.',
+      'Strengthened practical understanding of secure systems and application security.',
+    ],
+  },
+];
+
+function CompanyMark({ logo }: Pick<ExperienceItem, 'logo'>) {
+  if (logo === 'lxdia') {
+    return <span className="company-mark company-mark--lxdia" aria-label="LXDIA">LXDIA</span>;
+  }
+
+  return <span className="company-mark company-mark--cdac" aria-label="CDAC">CDAC</span>;
+}
+
+function ExperienceMeta({ date, duration }: Pick<ExperienceItem, 'date' | 'duration'>) {
+  if (!date) return null;
+
   return (
-    <section id="experience" className="py-24 bg-[#050505] relative">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="mb-16">
-            <h3 className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Journey So Far</h3>
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Experience & <span className="text-gray-500">Achievements</span></h2>
+    <p className="experience-card__meta">
+      <CalendarDays aria-hidden="true" />
+      <span>{date}</span>
+      {duration && <><span className="experience-card__meta-dot" aria-hidden="true">•</span><span>{duration}</span></>}
+    </p>
+  );
+}
+
+function ExperienceEntry({ item }: { item: ExperienceItem }) {
+  return (
+    <li className={`experience-entry experience-entry--${item.tone}`}>
+      <span className="experience-entry__node" aria-hidden="true" />
+      <article className="experience-card">
+        <div className={`experience-card__logo experience-card__logo--${item.logo}`}>
+          <CompanyMark logo={item.logo} />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            {/* Experience Column */}
-            <div className="space-y-8">
-                <h3 className="text-2xl font-semibold flex items-center gap-3">
-                    <Briefcase className="w-6 h-6 text-primary" />
-                    <span>Work Experience</span>
-                </h3>
+        <div className="experience-card__details">
+          <h4>{item.role}</h4>
+          <p className="experience-card__company">{item.company}</p>
+          <ExperienceMeta date={item.date} duration={item.duration} />
+        </div>
 
-                <div className="relative border-l border-white/10 pl-8 ml-3 space-y-12">
-                    <div className="relative group">
-                        <span className="absolute -left-[41px] top-1 w-5 h-5 rounded-full border-4 border-[#050505] bg-primary transition-transform group-hover:scale-125"></span>
-                        <div className="bg-[#111] border border-white/5 p-6 rounded-2xl hover:border-primary/30 transition-colors">
-                            <span className="text-primary text-xs font-bold uppercase tracking-wider mb-1 block">Internship</span>
-                            <h4 className="text-xl font-bold text-white">Cybersecurity Intern</h4>
-                            <p className="text-gray-400 text-sm mb-4">Centre for Development of Advanced Computing (CDAC)</p>
-                            <p className="text-gray-300 text-sm leading-relaxed">
-                                Worked on security analysis and vulnerability assessment. Gained hands-on experience with industry-standard security tools and protocols.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <ul className="experience-card__bullets">
+          {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+        </ul>
 
-            {/* Achievements Column */}
-            <div className="space-y-8">
-                 <h3 className="text-2xl font-semibold flex items-center gap-3">
-                    <Trophy className="w-6 h-6 text-primary" />
-                    <span>Hackathon Glory</span>
-                </h3>
+        <span className="experience-card__action" aria-hidden="true">
+          <ExternalLink />
+        </span>
+      </article>
+    </li>
+  );
+}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-[#151515] to-[#0a0a0a] p-6 rounded-2xl border border-white/5 text-center group hover:-translate-y-1 transition-transform duration-300">
-                        <div className="text-4xl font-bold text-white mb-2 group-hover:text-primary transition-colors">15+</div>
-                        <div className="text-gray-500 text-sm uppercase tracking-wider font-semibold">Hackathons Participated</div>
-                    </div>
-                     <div className="bg-gradient-to-br from-[#151515] to-[#0a0a0a] p-6 rounded-2xl border border-white/5 text-center group hover:-translate-y-1 transition-transform duration-300">
-                        <div className="text-4xl font-bold text-white mb-2 group-hover:text-primary transition-colors">5x</div>
-                        <div className="text-gray-500 text-sm uppercase tracking-wider font-semibold">Finalist</div>
-                    </div>
-                </div>
+export default function Experience() {
+  return (
+    <section id="experience" className="experience-section" aria-labelledby="experience-heading">
+      <div className="experience-decoration experience-decoration--wash" aria-hidden="true" />
+      <div className="experience-decoration experience-decoration--orbit" aria-hidden="true" />
+      <div className="experience-decoration experience-decoration--glow" aria-hidden="true" />
+      <span className="experience-sparkle" aria-hidden="true">✦</span>
 
-                <div className="space-y-4">
-                    <div className="flex items-start gap-4 p-4 bg-[#111] rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
-                        <div className="p-3 bg-yellow-500/10 rounded-lg">
-                            <Award className="w-6 h-6 text-yellow-500" />
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-bold text-white">SIH 2025 Grand Finale Runner Up</h4>
-                            <p className="text-gray-400 text-sm">Built SAKSHAM for NDMA - Real-time disaster management training monitoring system.</p>
-                        </div>
-                    </div>
+      <div className="experience-shell">
+        <header className="experience-intro">
+          <p className="experience-eyebrow">Journey So Far</p>
+          <h2 id="experience-heading" className="experience-heading">
+            <span>Experience &amp;</span>
+            <span>Achievements</span>
+          </h2>
+          <p className="experience-summary">
+            Building impactful products, solving real-world problems, and competing in high-performance environments.
+          </p>
+          <div className="experience-accent" aria-hidden="true"><span /></div>
+        </header>
 
-                     <div className="flex items-start gap-4 p-4 bg-[#111] rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
-                        <div className="p-3 bg-blue-500/10 rounded-lg">
-                            <Trophy className="w-6 h-6 text-blue-500" />
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-bold text-white">SynapHack Finalist (Nexus)</h4>
-                            <p className="text-gray-400 text-sm">Created an enterprise-grade hackathon management platform.</p>
-                        </div>
-                    </div>
-                </div>
+        <div className="experience-content">
+          <div className="experience-content__title">
+            <span className="experience-content__icon"><BriefcaseBusiness aria-hidden="true" /></span>
+            <h3>Professional Experience</h3>
+          </div>
 
-            </div>
-
+          <ol className="experience-timeline">
+            {EXPERIENCE_ITEMS.map((item) => <ExperienceEntry key={item.id} item={item} />)}
+          </ol>
         </div>
       </div>
     </section>
   );
-};
-
-export default Experience;
+}
