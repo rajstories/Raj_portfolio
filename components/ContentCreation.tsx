@@ -22,22 +22,13 @@ const contentPillars = [
   { icon: Video, label: 'Visual Storytelling', description: 'Editing & narrative composition', tone: 'gold' },
 ];
 
-const galleryImages = [
-  { src: '/assets/wardwatch.png', alt: 'WardWatch project visual' },
-  { src: '/projects/threatpilot.png', alt: 'ThreatPilot developer workspace' },
-  { src: '/projects/dealflow.png', alt: 'DealFlow product visual' },
-  { src: '/assets/saksham.png', alt: 'Saksham dashboard visual' },
-  { src: '/projects/prolytic.png', alt: 'Prolytic project visual' },
-  { src: '/assets/apna-thela.png', alt: 'Apna Thela product visual' },
-];
-
 const reels = [
-  { title: 'CINEMATIC VLOG', subtitle: 'Exploring Mountains', views: '125K', image: '/assets/wardwatch.png', className: 'stories-reel--mountains' },
-  { title: 'LIFE OF A DEVELOPER', subtitle: 'The Reality', views: '98K', image: '/projects/threatpilot.png', className: 'stories-reel--developer' },
-  { title: 'STUDENT DIARIES', subtitle: 'Growth & Grind', views: '76K', image: '/assets/saksham.png', className: 'stories-reel--student' },
-  { title: 'TRAVEL STORIES', subtitle: 'Wander. Capture. Repeat.', views: '112K', image: '/assets/wardwatch.png', className: 'stories-reel--travel' },
-  { title: 'BEHIND THE CODE', subtitle: 'Building in Silence', views: '89K', image: '/projects/prolytic.png', className: 'stories-reel--code' },
-  { title: 'LESSONS LEARNED', subtitle: 'Notes from the Journey', views: '71K', image: '/assets/apna-thela.png', className: 'stories-reel--lessons' },
+  { title: 'CINEMATIC VLOG', phoneTitle: 'CINEMATIC VLOG', subtitle: 'Exploring Mountains', views: '125K', scene: 'stories-scene--mountains' },
+  { title: 'LIFE OF A DEVELOPER', phoneTitle: 'TECH LIFESTYLE', subtitle: 'The Reality', views: '98K', scene: 'stories-scene--developer' },
+  { title: 'STUDENT DIARIES', phoneTitle: 'STUDENT JOURNEY', subtitle: 'Growth & Grind', views: '76K', scene: 'stories-scene--student' },
+  { title: 'TRAVEL STORIES', phoneTitle: 'TRAVEL STORIES', subtitle: 'Wander. Capture. Repeat.', views: '112K', scene: 'stories-scene--travel' },
+  { title: 'BEHIND THE CODE', phoneTitle: 'BEHIND THE CODE', subtitle: 'Building in Silence', views: '89K', scene: 'stories-scene--code' },
+  { title: 'LESSONS LEARNED', phoneTitle: 'VISUAL STORYTELLING', subtitle: 'Notes from the Journey', views: '71K', scene: 'stories-scene--lessons' },
 ];
 
 const ProfileCard: React.FC = () => (
@@ -49,7 +40,7 @@ const ProfileCard: React.FC = () => (
       </header>
 
       <div className="stories-profile__overview">
-        <div className="stories-profile__avatar"><span>RAJ</span></div>
+        <div className="stories-profile__avatar"><span><b>R</b><small>RAJ</small></span></div>
         <dl className="stories-profile__metrics">
           <div><dt>2.5+</dt><dd>Years</dd></div>
           <div><dt>500K+</dt><dd>Views</dd></div>
@@ -73,7 +64,11 @@ const ProfileCard: React.FC = () => (
       </div>
 
       <div className="stories-profile__gallery">
-        {galleryImages.map((image) => <img key={image.src} src={image.src} alt={image.alt} />)}
+        {reels.map((reel) => (
+          <article className={`stories-profile__tile stories-scene ${reel.scene}`} key={reel.phoneTitle} aria-label={reel.phoneTitle}>
+            <strong>{reel.phoneTitle}</strong>
+          </article>
+        ))}
       </div>
 
       <div className="stories-profile__engagement">
@@ -87,8 +82,8 @@ const ProfileCard: React.FC = () => (
 const ReelGrid: React.FC = () => (
   <div className="stories-reels" aria-label="Featured story reels">
     {reels.map((reel) => (
-      <article className={`stories-reel ${reel.className}`} key={reel.title}>
-        <img src={reel.image} alt="" />
+      <article className="stories-reel" key={reel.title}>
+        <div className={`stories-reel__visual stories-scene ${reel.scene}`} aria-hidden="true" />
         <div className="stories-reel__shade" />
         <div className="stories-reel__copy">
           <strong>{reel.title}</strong>

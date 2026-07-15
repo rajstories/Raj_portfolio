@@ -69,9 +69,9 @@ const ProjectGallery = ({ onBack, onNavigate }: ProjectGalleryProps) => {
                   }
                 }}
               >
-                <div className="project-gallery-card__media">
+                <div className={`project-gallery-card__media${project.imageFit === 'contain' ? ' project-gallery-card__media--contain' : ''}`}>
                   <img src={project.image} alt={project.imageAlt} />
-                  <span className="project-gallery-card__number" aria-hidden="true">0{project.id}</span>
+                  <span className="project-gallery-card__number" aria-hidden="true">{String(project.id).padStart(2, '0')}</span>
                 </div>
 
                 <div className="project-gallery-card__body">

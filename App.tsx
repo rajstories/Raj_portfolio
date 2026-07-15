@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import ContentCreation from './components/ContentCreation';
 import ProjectGallery from './components/ProjectGallery';
 import Connect from './components/Connect';
+import AchievementMarquee from './components/AchievementMarquee';
 import { SectionId } from './types';
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
       
       <main>
         <Hero />
+        <AchievementMarquee />
         <Features />
         <Experience />
         <ContentCreation />
