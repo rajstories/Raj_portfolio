@@ -130,7 +130,7 @@ function HeroContent() {
       <h1 className="hero-title">
         <span>Hi, I&apos;m Raj</span>
         <span>Full-Stack &amp;</span>
-        <span>AI/ML Enthusiast</span>
+        <span>AI/ML Developer</span>
       </h1>
 
       <p className="hero-description">
