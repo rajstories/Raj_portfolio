@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
 import { NavItem, SectionId } from '../types';
 import { jsPDF } from 'jspdf';
 
@@ -19,6 +19,7 @@ const NAV_ITEMS: NavItem[] = [
 
 const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,53 +197,58 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
     doc.save("Raj_Shrivastav_Resume.pdf");
   };
 
+  const handleNavigate = (id: SectionId) => {
+    setMenuOpen(false);
+    onNavigate(id);
+  };
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex items-center justify-between px-6 py-6 md:px-12 ${scrolled ? 'pt-4 pb-4' : 'pt-8 pb-4'}`}>
-      {/* Logo */}
-      <div className="flex-shrink-0 z-50">
-        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="text-3xl font-bold tracking-tight text-white hover:text-primary transition-colors">
-          Raj
+    <header className={`portfolio-header${scrolled ? ' portfolio-header--scrolled' : ''}`}>
+      <div className="portfolio-navbar">
+        <a href="#home" onClick={(event) => { event.preventDefault(); handleNavigate('home'); }} className="portfolio-logo" aria-label="Raj portfolio home">
+          <svg viewBox="0 0 46 46" aria-hidden="true">
+            <path d="M11 8h19c6.5 0 11 4.2 11 10.2 0 4.9-3 8.5-7.7 9.8L42 38h-9.8L21.5 25.4h8.1c2.7 0 4.4-1.6 4.4-4.2 0-2.5-1.8-4.1-4.5-4.1H11V8Z" fill="#315ef8" />
+            <path d="M10 20h8v18h-8z" fill="#ff5a2a" />
+            <path d="m18 28 9.2 10H18V28Z" fill="#ef4016" />
+          </svg>
+          <span>Raj</span>
         </a>
-      </div>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
-        <ul className="flex items-center gap-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-2 py-2 shadow-lg shadow-black/20">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => onNavigate(item.id)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'text-primary bg-white/10 shadow-inner'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <nav className="portfolio-nav" aria-label="Primary navigation">
+          <ul>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.id}>
+                <button className={activeSection === item.id ? 'is-active' : ''} type="button" onClick={() => handleNavigate(item.id)}>
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      {/* Right Side Actions */}
-      <div className="flex-shrink-0 flex items-center gap-4 z-50">
-        <button 
-          onClick={handleDownloadResume}
-          className="hidden sm:flex items-center gap-2 bg-[#1A1A1A] hover:bg-[#252525] border border-white/10 text-white px-6 py-3 rounded-full transition-all duration-300 group cursor-pointer"
-        >
-          <Download className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-          <span className="text-sm font-medium">Download Resume</span>
-        </button>
-        
-        {/* Mobile Menu Button (Hamburger) */}
-        <div className="md:hidden">
-             {/* Placeholder for mobile menu trigger - keeping it simple for the desktop-focused design requirement */}
-             <button className="text-white p-2">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
-             </button>
+        <div className="portfolio-navbar__actions">
+          <a
+            className="resume-button"
+            href="/Raj_Resume_AI_Data_Engineer.pdf"
+            download="Raj_Resume_AI_Data_Engineer.pdf"
+            aria-label="Download Raj Shrivastav's AI Data Engineer resume"
+          >
+            <Download aria-hidden="true" />
+            <span>Download Resume</span>
+          </a>
+          <button className="menu-button" type="button" onClick={() => setMenuOpen((isOpen) => !isOpen)} aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}>
+            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </button>
         </div>
       </div>
+
+      <nav id="mobile-navigation" className={`mobile-navigation${menuOpen ? ' is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menuOpen}>
+        {NAV_ITEMS.map((item) => (
+          <button key={item.id} className={activeSection === item.id ? 'is-active' : ''} type="button" onClick={() => handleNavigate(item.id)}>
+            {item.label}
+          </button>
+        ))}
+      </nav>
     </header>
   );
 };

@@ -1,79 +1,124 @@
-import React from 'react';
-import { Terminal, Cpu, Layout, Database, Cloud, Shield } from 'lucide-react';
+import {
+  Cloud,
+  Cpu,
+  Database,
+  LayoutPanelTop,
+  Rocket,
+  Shield,
+  Terminal,
+  type LucideIcon,
+} from 'lucide-react';
+import type { CSSProperties } from 'react';
 
-const techStack = [
-  { 
-    icon: Layout, 
-    title: "Frontend Development", 
-    desc: "React, Next.js, Tailwind CSS", 
-    tags: ["React", "Next.js", "Tailwind"] 
+type SkillCategory = {
+  title: string;
+  description: string;
+  tags: string[];
+  icon: LucideIcon;
+  tone: 'orange' | 'blue' | 'purple' | 'green' | 'gold' | 'pink';
+};
+
+const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    title: 'Frontend Development',
+    description: 'Building responsive and performant user interfaces.',
+    tags: ['React', 'Next.js', 'Tailwind CSS'],
+    icon: LayoutPanelTop,
+    tone: 'orange',
   },
-  { 
-    icon: Terminal, 
-    title: "Backend Engineering", 
-    desc: "Node.js, FastAPI, Python, Go", 
-    tags: ["Node.js", "FastAPI", "Python"] 
+  {
+    title: 'Backend Engineering',
+    description: 'Building robust APIs and scalable backend systems.',
+    tags: ['Node.js', 'FastAPI', 'Python', 'Go'],
+    icon: Terminal,
+    tone: 'blue',
   },
-  { 
-    icon: Cpu, 
-    title: "AI & Automation", 
-    desc: "LangChain, OpenAI, n8n, HuggingFace", 
-    tags: ["LangChain", "OpenAI", "n8n"] 
+  {
+    title: 'AI & Automation',
+    description: 'Building intelligent apps and automating workflows.',
+    tags: ['LangChain', 'OpenAI', 'n8n', 'HuggingFace'],
+    icon: Cpu,
+    tone: 'purple',
   },
-  { 
-    icon: Database, 
-    title: "Databases", 
-    desc: "PostgreSQL, MongoDB, Redis", 
-    tags: ["PostgreSQL", "MongoDB", "Redis"] 
+  {
+    title: 'Databases',
+    description: 'Working with relational and NoSQL databases.',
+    tags: ['PostgreSQL', 'MongoDB', 'Redis'],
+    icon: Database,
+    tone: 'green',
   },
-  { 
-    icon: Cloud, 
-    title: "DevOps & Cloud", 
-    desc: "Docker, Azure, Firebase, Git", 
-    tags: ["Docker", "Azure", "Firebase"] 
+  {
+    title: 'DevOps & Cloud',
+    description: 'Deploying, monitoring and scaling applications.',
+    tags: ['Docker', 'Azure', 'Firebase', 'Git'],
+    icon: Cloud,
+    tone: 'gold',
   },
-  { 
-    icon: Shield, 
-    title: "Security", 
-    desc: "Vulnerability Assessment, Analysis", 
-    tags: ["Cybersecurity", "Auditing"] 
+  {
+    title: 'Security',
+    description: 'Ensuring application security and best practices.',
+    tags: ['Vulnerability Assessment', 'Analysis'],
+    icon: Shield,
+    tone: 'pink',
   },
 ];
 
-const Features: React.FC = () => {
+function SkillsIntro() {
   return (
-    <section id="skills" className="py-24 bg-black relative overflow-hidden">
-        {/* Background Gradients */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+    <div className="skills-intro">
+      <div className="skills-intro__rule" aria-hidden="true"><span /></div>
+      <p className="skills-eyebrow">My Arsenal</p>
+      <h2 id="skills-heading" className="skills-title">Skills &amp;<br />Technologies</h2>
+      <p className="skills-description">
+        A powerful blend of modern technologies and tools I use to build scalable, secure and impactful digital solutions.
+      </p>
+      <div className="skills-accent" aria-hidden="true"><span /></div>
 
-        <div className="container mx-auto px-6 md:px-12">
-            <div className="mb-16">
-                <h3 className="text-primary text-sm font-bold uppercase tracking-widest mb-2">My Arsenal</h3>
-                <h2 className="text-4xl md:text-5xl font-bold text-white">Tech <span className="text-gray-500">Stack</span></h2>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {techStack.map((tech, idx) => (
-                    <div key={idx} className="group bg-[#0f0f0f] border border-white/5 hover:border-primary/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
-                        <div className="w-14 h-14 bg-gradient-to-br from-[#2A1810] to-black border border-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <tech.icon className="w-7 h-7 text-primary" />
-                        </div>
-                        <h4 className="text-xl font-bold text-white mb-2">{tech.title}</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">{tech.desc}</p>
-                        
-                        <div className="flex flex-wrap gap-2">
-                          {tech.tags.map((tag, tIdx) => (
-                            <span key={tIdx} className="text-[10px] uppercase font-semibold tracking-wider bg-white/5 text-gray-400 px-2 py-1 rounded-md border border-white/5 group-hover:border-primary/20 group-hover:text-primary/80 transition-colors">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
+      <aside className="learning-card" aria-label="Always learning">
+        <div className="learning-card__icon"><Rocket aria-hidden="true" /></div>
+        <div>
+          <h3>Always Learning</h3>
+          <p>I&apos;m constantly exploring new tools and techniques to solve real-world problems and build better products.</p>
         </div>
+      </aside>
+    </div>
+  );
+}
+
+function SkillRow({ category, index }: { category: SkillCategory; index: number }) {
+  const Icon = category.icon;
+
+  return (
+    <li className={`skill-row skill-row--${category.tone}`} style={{ '--skill-index': index } as CSSProperties}>
+      <div className="skill-row__icon"><Icon aria-hidden="true" /></div>
+      <div className="skill-row__rail" aria-hidden="true"><span /></div>
+      <div className="skill-row__copy">
+        <h3>{category.title}</h3>
+        <p>{category.description}</p>
+      </div>
+      <ul className="skill-row__tags" aria-label={`${category.title} technologies`}>
+        {category.tags.map((tag) => <li key={tag}>{tag}</li>)}
+      </ul>
+    </li>
+  );
+}
+
+export default function Features() {
+  return (
+    <section id="skills" className="skills-section" aria-labelledby="skills-heading">
+      <div className="skills-decoration skills-decoration--orbit" aria-hidden="true" />
+      <div className="skills-decoration skills-decoration--shape" aria-hidden="true" />
+      <div className="skills-decoration skills-decoration--glow" aria-hidden="true" />
+      <div className="skills-sparkle" aria-hidden="true">✦</div>
+
+      <div className="skills-shell">
+        <SkillsIntro />
+        <ul className="skills-list" aria-label="Technical skill categories">
+          {SKILL_CATEGORIES.map((category, index) => (
+            <SkillRow key={category.title} category={category} index={index} />
+          ))}
+        </ul>
+      </div>
     </section>
   );
-};
-
-export default Features;
+}
