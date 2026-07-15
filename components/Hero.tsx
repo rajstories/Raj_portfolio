@@ -124,7 +124,6 @@ function HeroContent() {
   return (
     <div className="hero-content">
       <div className="hero-credential">
-        <span aria-hidden="true">ϟ</span>
         B.Tech CSE @ DTU
       </div>
 
@@ -144,7 +143,7 @@ function HeroContent() {
           <span>View My Work</span>
           <ArrowRight aria-hidden="true" />
         </button>
-        <a className="hero-button hero-button--secondary" href="#connect">
+        <a className="hero-button hero-button--secondary" href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer">
           <Send aria-hidden="true" />
           <span>Let&apos;s Connect</span>
         </a>

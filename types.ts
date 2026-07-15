@@ -24,7 +24,10 @@ export interface Project {
   description: string;
   image: string;
   imageAlt: string;
+  imageFit?: 'cover' | 'contain';
   tags: string[];
+  technologies?: string[];
+  keyFeatures?: string[];
   link?: string;
   longDescription: string;
   problem: string;
@@ -32,6 +35,8 @@ export interface Project {
   audience: string;
   whyItMatters: string;
   demoVideo?: string;
+  prototypeVideo?: string;
+  audioDemo?: string;
   websiteLink?: string;
 }
 

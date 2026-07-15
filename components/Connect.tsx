@@ -128,7 +128,7 @@ export default function Connect() {
 
         <footer className="connect-footer">
           <span aria-hidden="true" />
-          <p>© {new Date().getFullYear()} Raj. Built with React &amp; Tailwind.</p>
+          <p>© {new Date().getFullYear()} Raj. All rights reserved.</p>
           <span aria-hidden="true" />
         </footer>
       </div>

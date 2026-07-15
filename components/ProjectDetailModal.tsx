@@ -5,6 +5,7 @@ import {
   Atom,
   BarChart3,
   Boxes,
+  CheckCircle2,
   Code2,
   ExternalLink,
   Github,
@@ -18,6 +19,7 @@ import {
   Target,
   UserRound,
   Users,
+  Volume2,
   Workflow,
   X,
   Zap,
@@ -52,9 +54,11 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [imageFailed, setImageFailed] = useState(false);
+  const [showAudioDemo, setShowAudioDemo] = useState(false);
 
   useEffect(() => {
     setImageFailed(false);
+    setShowAudioDemo(false);
   }, [project?.image]);
 
   useEffect(() => {
@@ -150,7 +154,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
               </dl>
             </div>
 
-            <div className={`project-modal__visual${imageFailed ? ' project-modal__visual--fallback' : ''}`}>
+            <div className={`project-modal__visual${imageFailed ? ' project-modal__visual--fallback' : ''}${project.imageFit === 'contain' ? ' project-modal__visual--contain' : ''}`}>
               {imageFailed ? (
                 <div className="project-modal__fallback">
                   <Sparkles aria-hidden="true" />
@@ -198,11 +202,28 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
             </div>
           </section>
 
+          {project.keyFeatures && project.keyFeatures.length > 0 && (
+            <section className="project-modal__features" aria-labelledby={`${titleId}-features`}>
+              <header>
+                <span><Boxes aria-hidden="true" /></span>
+                <div>
+                  <h3 id={`${titleId}-features`}>Key Features</h3>
+                  <p>Core product capabilities delivered in this build.</p>
+                </div>
+              </header>
+              <ul>
+                {project.keyFeatures.map((feature) => (
+                  <li key={feature}><CheckCircle2 aria-hidden="true" /><span>{feature}</span></li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <div className="project-modal__tools-actions">
             <section className="project-modal__technologies" aria-labelledby={`${titleId}-technologies`}>
               <h3 id={`${titleId}-technologies`}>Technologies Used</h3>
               <ul>
-                {project.tags.map((tag) => (
+                {(project.technologies ?? project.tags).map((tag) => (
                   <li key={tag}><TechnologyIcon name={tag} /><span>{tag}</span></li>
                 ))}
               </ul>
@@ -224,8 +245,31 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
                   <Play aria-hidden="true" /><span>Demo</span><ArrowUpRight aria-hidden="true" />
                 </a>
               )}
+              {project.prototypeVideo && (
+                <a className="project-modal__action project-modal__action--demo" href={project.prototypeVideo} target="_blank" rel="noopener noreferrer">
+                  <Play aria-hidden="true" /><span>Prototype</span><ArrowUpRight aria-hidden="true" />
+                </a>
+              )}
+              {project.audioDemo && (
+                <button className="project-modal__action project-modal__action--audio" type="button" onClick={() => setShowAudioDemo(true)}>
+                  <Volume2 aria-hidden="true" /><span>Hear Demo</span>
+                </button>
+              )}
             </nav>
           </div>
+
+          {project.audioDemo && showAudioDemo && (
+            <section className="project-modal__audio" aria-label={`${project.title} audio demo`}>
+              <span><Volume2 aria-hidden="true" /></span>
+              <div>
+                <strong>Live outbound call demo</strong>
+                <small>Listen to the AI agent handling a real-time voice conversation.</small>
+                <audio controls autoPlay preload="metadata" src={project.audioDemo}>
+                  Your browser does not support audio playback.
+                </audio>
+              </div>
+            </section>
+          )}
 
           <section className="project-modal__impact" aria-labelledby={`${titleId}-impact`}>
             <span className="project-modal__impact-icon"><Sparkles aria-hidden="true" /></span>

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '../types';
-import { PROJECT_DATA } from '../data/projects';
+import { FEATURED_PROJECTS, PROJECT_DATA } from '../data/projects';
 import ProjectDetailModal from './ProjectDetailModal';
 
 interface ProjectsProps {
@@ -79,7 +79,7 @@ const Projects = ({ onViewAll }: ProjectsProps) => {
         </div>
 
         <div className="projects-grid">
-          {PROJECT_DATA.map((project) => (
+          {FEATURED_PROJECTS.map((project) => (
             <article
               key={project.id}
               onClick={(event) => openProject(project, event.currentTarget)}

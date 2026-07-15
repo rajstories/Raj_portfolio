@@ -1,12 +1,12 @@
 import {
+  Bot,
+  BrainCircuit,
+  ChartNoAxesCombined,
   Cloud,
-  Cpu,
-  Database,
-  LayoutPanelTop,
   Rocket,
-  Shield,
-  Terminal,
+  Sparkles,
   type LucideIcon,
+  Workflow,
 } from 'lucide-react';
 import type { CSSProperties } from 'react';
 
@@ -20,45 +20,45 @@ type SkillCategory = {
 
 const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'Frontend Development',
-    description: 'Building responsive and performant user interfaces.',
-    tags: ['React', 'Next.js', 'Tailwind CSS'],
-    icon: LayoutPanelTop,
+    title: 'AI / ML & Data Science',
+    description: 'Building explainable models and data-driven intelligence.',
+    tags: ['Python', 'scikit-learn', 'pandas', 'TensorFlow', 'PyTorch'],
+    icon: BrainCircuit,
     tone: 'orange',
   },
   {
-    title: 'Backend Engineering',
-    description: 'Building robust APIs and scalable backend systems.',
-    tags: ['Node.js', 'FastAPI', 'Python', 'Go'],
-    icon: Terminal,
-    tone: 'blue',
-  },
-  {
-    title: 'AI & Automation',
-    description: 'Building intelligent apps and automating workflows.',
-    tags: ['LangChain', 'OpenAI', 'n8n', 'HuggingFace'],
-    icon: Cpu,
+    title: 'LLMs & Generative AI',
+    description: 'Applying multimodal and local models to practical workflows.',
+    tags: ['Gemini', 'Ollama', 'Groq', 'Llama'],
+    icon: Sparkles,
     tone: 'purple',
   },
   {
-    title: 'Databases',
-    description: 'Working with relational and NoSQL databases.',
-    tags: ['PostgreSQL', 'MongoDB', 'Redis'],
-    icon: Database,
+    title: 'AI Agents & Orchestration',
+    description: 'Designing multi-agent systems and tool-connected AI workflows.',
+    tags: ['LangGraph', 'LangChain', 'CrewAI', 'n8n'],
+    icon: Workflow,
+    tone: 'blue',
+  },
+  {
+    title: 'Agent Platforms & Tooling',
+    description: 'Evaluating emerging agent platforms and collaborative systems.',
+    tags: ['OpenClaw', 'Paperclip', 'Hermes Agent', 'MCP'],
+    icon: Bot,
     tone: 'green',
   },
   {
-    title: 'DevOps & Cloud',
-    description: 'Deploying, monitoring and scaling applications.',
-    tags: ['Docker', 'Azure', 'Firebase', 'Git'],
-    icon: Cloud,
+    title: 'Data Analytics & Intelligence',
+    description: 'Turning data into interpretable dashboards, insights and decisions.',
+    tags: ['SQL', 'Power BI', 'Tableau', 'Neo4j'],
+    icon: ChartNoAxesCombined,
     tone: 'gold',
   },
   {
-    title: 'Security',
-    description: 'Ensuring application security and best practices.',
-    tags: ['Vulnerability Assessment', 'Analysis'],
-    icon: Shield,
+    title: 'AI Systems & Deployment',
+    description: 'Taking intelligent systems from prototype to reliable delivery.',
+    tags: ['FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Google Cloud'],
+    icon: Cloud,
     tone: 'pink',
   },
 ];
@@ -70,7 +70,7 @@ function SkillsIntro() {
       <p className="skills-eyebrow">My Arsenal</p>
       <h2 id="skills-heading" className="skills-title">Skills &amp;<br />Technologies</h2>
       <p className="skills-description">
-        A powerful blend of modern technologies and tools I use to build scalable, secure and impactful digital solutions.
+        A focused AI stack across machine learning, agents, analytics and production-ready intelligent systems.
       </p>
       <div className="skills-accent" aria-hidden="true"><span /></div>
 
@@ -78,7 +78,7 @@ function SkillsIntro() {
         <div className="learning-card__icon"><Rocket aria-hidden="true" /></div>
         <div>
           <h3>Always Learning</h3>
-          <p>I&apos;m constantly exploring new tools and techniques to solve real-world problems and build better products.</p>
+          <p>Continuously exploring agentic workflows, ML systems and data tools for meaningful real-world problems.</p>
         </div>
       </aside>
     </div>
@@ -90,7 +90,10 @@ function SkillRow({ category, index }: { category: SkillCategory; index: number 
 
   return (
     <li className={`skill-row skill-row--${category.tone}`} style={{ '--skill-index': index } as CSSProperties}>
-      <div className="skill-row__icon"><Icon aria-hidden="true" /></div>
+      <div className="skill-row__icon" aria-hidden="true">
+        <span className="skill-row__icon-glow" />
+        <Icon />
+      </div>
       <div className="skill-row__rail" aria-hidden="true"><span /></div>
       <div className="skill-row__copy">
         <h3>{category.title}</h3>
