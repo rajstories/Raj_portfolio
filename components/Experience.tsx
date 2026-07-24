@@ -27,40 +27,69 @@ type ExperienceItem = {
   id: string;
   role: string;
   company: string;
-  logo: 'lxdia' | 'cdac';
-  tone: 'orange' | 'blue';
+  logo: 'lxdia' | 'rocker' | 'upm' | 'cdac';
+  tone: 'orange' | 'blue' | 'purple' | 'green';
   date?: string;
   duration?: string;
+  certificateUrl?: string;
   bullets: string[];
 };
 
 const EXPERIENCE_ITEMS: ExperienceItem[] = [
   {
     id: 'lxdia-ai',
-    role: 'AI Engineer Intern',
+    role: 'AI Engineering Intern',
     company: 'LXDIA AI Pvt. Limited',
     logo: 'lxdia',
     tone: 'orange',
-    date: 'Apr 2026 – Jul 2026',
-    duration: '3 months',
+    date: 'Apr 2026 – Present',
+    certificateUrl: 'https://drive.google.com/file/d/1fwjtGWu3rj2w5huSnDG2rg7bOGet7RfU/view?usp=sharing',
     bullets: [
-      'Built and deployed ML/AI models and orchestrated LLM-based agent workflows for production use cases, working across the full pipeline from data to deployment.',
-      'Engineered an automated end-to-end content pipeline — from research to script generation — analyzing trending topics across Instagram, Twitter (X), and Reddit.',
-      'Developed AI voice-calling agents for automated, real-time conversational workflows.',
+      'Built and deployed 4+ Machine Learning and AI models while orchestrating production LLM-agent workflows, improving end-to-end automation efficiency by 25%.',
+      'Engineered an AI content and voice-agent pipeline that reduced content preparation time by 50% and improved conversational response efficiency by 35%.',
+    ],
+  },
+  {
+    id: 'rocker-solar',
+    role: 'Software Developer Intern',
+    company: 'Rocker Solar Solutions Pvt. Ltd.',
+    logo: 'rocker',
+    tone: 'blue',
+    date: 'Oct 2025 – Mar 2026',
+    duration: '6 months',
+    certificateUrl: 'https://drive.google.com/file/d/1fk8er5oZYrAioXBSi8LEsIe-vi47i5ad/view?usp=sharing',
+    bullets: [
+      'Developed an end-to-end CRM for leads, dealers, customers, warehouses, and finance operations, improving operational productivity by 40%.',
+      'Built a 2D/3D solar-design platform for residential and commercial projects, reducing per-customer design and costing expenses by 30%.',
+      'Collaborated across teams to ship scalable business applications with stronger workflow automation and user experience.',
+    ],
+  },
+  {
+    id: 'upm-consultancy',
+    role: 'AI Voice Engineer Intern',
+    company: 'UPM Consultancy',
+    logo: 'upm',
+    tone: 'purple',
+    date: 'Apr 2026 – May 2026',
+    duration: '2 months',
+    bullets: [
+      'Built a production-ready outbound AI calling agent by integrating LiveKit, Deepgram speech services, Groq-hosted Llama 3.3, and SIP telephony.',
+      'Automated real-time customer conversations and repetitive outbound workflows, creating a reusable foundation for scalable 24/7 calling operations.',
+      'Unified STT, LLM reasoning, TTS, dialing, and troubleshooting into one configuration layer to reduce deployment overhead and improve response reliability.',
     ],
   },
   {
     id: 'cdac',
     role: 'Cybersecurity Intern',
-    company: 'Centre for Development of Advanced Computing (CDAC)',
+    company: 'Centre for Development of Advanced Computing (C-DAC)',
     logo: 'cdac',
-    tone: 'blue',
+    tone: 'green',
     date: 'Jul 2025 – Sep 2025',
     duration: '3 months',
     bullets: [
-      'Worked on security analysis and vulnerability assessment.',
-      'Gained hands-on experience with industry-standard security tools and protocols.',
-      'Strengthened practical understanding of secure systems and application security.',
+      'Performed security analysis and vulnerability assessments across applications and systems.',
+      'Identified and helped remediate 15+ vulnerabilities using industry-standard security tools and protocols.',
+      'Strengthened secure-development practices through hands-on application security and risk analysis.',
     ],
   },
 ];
@@ -119,7 +148,15 @@ function CompanyMark({ logo }: Pick<ExperienceItem, 'logo'>) {
     return <span className="company-mark company-mark--lxdia" aria-label="LXDIA">LXDIA</span>;
   }
 
-  return <span className="company-mark company-mark--cdac" aria-label="CDAC">CDAC</span>;
+  if (logo === 'rocker') {
+    return <span className="company-mark company-mark--rocker" aria-label="Rocker Solar">Rocker<span>Solar</span></span>;
+  }
+
+  if (logo === 'upm') {
+    return <span className="company-mark company-mark--upm" aria-label="UPM Consultancy">UPM</span>;
+  }
+
+  return <span className="company-mark company-mark--cdac" aria-label="C-DAC">C-DAC</span>;
 }
 
 function ExperienceMeta({ date, duration }: Pick<ExperienceItem, 'date' | 'duration'>) {
@@ -153,9 +190,26 @@ function ExperienceEntry({ item }: { item: ExperienceItem }) {
           {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
         </ul>
 
-        <span className="experience-card__action" aria-hidden="true">
-          <ExternalLink />
-        </span>
+        {item.certificateUrl ? (
+          <a
+            className="experience-card__action"
+            href={item.certificateUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${item.company} internship certificate`}
+            title="View internship certificate"
+          >
+            <ExternalLink aria-hidden="true" />
+          </a>
+        ) : (
+          <span
+            className="experience-card__action experience-card__action--pending"
+            aria-label={`${item.company} certificate link pending`}
+            title="Certificate link pending"
+          >
+            <ExternalLink aria-hidden="true" />
+          </span>
+        )}
       </article>
     </li>
   );

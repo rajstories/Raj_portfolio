@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">ReelVault AI semantic memory</title>
+  <desc id="desc">Product cover highlighting 79 tests, three capture paths, semantic search and AI-generated discovery tags.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#070918"/>
+      <stop offset=".55" stop-color="#11153a"/>
+      <stop offset="1" stop-color="#071f36"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#6d67ff" flood-opacity=".55"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="36" fill="url(#bg)"/>
+  <circle cx="785" cy="78" r="190" fill="#5b4df2" opacity=".09"/>
+  <circle cx="876" cy="454" r="220" fill="#19c8e3" opacity=".07"/>
+
+  <text x="62" y="82" fill="#9d8cff" font-family="Manrope,Inter,sans-serif" font-size="18" font-weight="800" letter-spacing="4">AI-POWERED PERSONAL MEMORY</text>
+  <text x="58" y="172" fill="#fff" font-family="Manrope,Inter,sans-serif" font-size="72" font-weight="850">ReelVault</text>
+  <text x="63" y="219" fill="#b8c2db" font-family="Manrope,Inter,sans-serif" font-size="22">Save once. Find later by meaning.</text>
+
+  <g transform="translate(62 276)" font-family="Manrope,Inter,sans-serif">
+    <rect width="136" height="104" rx="22" fill="#171b3d" stroke="#8171ff" stroke-opacity=".42"/>
+    <text x="22" y="50" fill="#fff" font-size="34" font-weight="850">79</text>
+    <text x="22" y="78" fill="#aeb8d1" font-size="14" font-weight="700" letter-spacing="1">TESTS</text>
+
+    <rect x="150" width="136" height="104" rx="22" fill="#171b3d" stroke="#8171ff" stroke-opacity=".42"/>
+    <text x="172" y="50" fill="#fff" font-size="34" font-weight="850">3</text>
+    <text x="172" y="78" fill="#aeb8d1" font-size="14" font-weight="700" letter-spacing="1">CAPTURE PATHS</text>
+
+    <rect x="300" width="136" height="104" rx="22" fill="#171b3d" stroke="#31cee6" stroke-opacity=".42"/>
+    <text x="322" y="50" fill="#fff" font-size="34" font-weight="850">4–7</text>
+    <text x="322" y="78" fill="#aeb8d1" font-size="14" font-weight="700" letter-spacing="1">AI TAGS</text>
+  </g>
+
+  <g transform="translate(545 74)" filter="url(#glow)">
+    <rect width="338" height="390" rx="30" fill="#10142f" stroke="#8073ff" stroke-opacity=".55"/>
+    <rect x="25" y="25" width="288" height="58" rx="17" fill="#1c2148"/>
+    <circle cx="55" cy="54" r="13" fill="url(#accent)"/>
+    <path d="m50 54 4 4 8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="80" y="60" fill="#fff" font-family="Manrope,Inter,sans-serif" font-size="17" font-weight="750">Memory captured</text>
+
+    <rect x="25" y="105" width="288" height="55" rx="16" fill="#0c1028" stroke="#52608f" stroke-opacity=".55"/>
+    <circle cx="53" cy="132" r="10" fill="none" stroke="#91a0c7" stroke-width="3"/>
+    <path d="m60 140 8 8" stroke="#91a0c7" stroke-width="3" stroke-linecap="round"/>
+    <text x="79" y="137" fill="#c6cee2" font-family="Manrope,Inter,sans-serif" font-size="14">that AI startup reel...</text>
+
+    <g stroke="#52658b" stroke-width="2">
+      <path d="M76 236 145 202l59 55 61-42"/>
+      <path d="m76 236 70 68 58-47 61 48"/>
+      <path d="m145 202 1 102m58-47 61-42m-61 42 61 48"/>
+    </g>
+    <g>
+      <circle cx="76" cy="236" r="13" fill="#22d3ee"/>
+      <circle cx="145" cy="202" r="17" fill="#7c5cff"/>
+      <circle cx="146" cy="304" r="11" fill="#4f8cff"/>
+      <circle cx="204" cy="257" r="22" fill="url(#accent)"/>
+      <circle cx="265" cy="215" r="12" fill="#a78bfa"/>
+      <circle cx="265" cy="305" r="15" fill="#22d3ee"/>
+    </g>
+
+    <rect x="25" y="335" width="288" height="34" rx="11" fill="#20254d"/>
+    <text x="45" y="357" fill="#b9c7e7" font-family="Manrope,Inter,sans-serif" font-size="12" font-weight="700">384-D VECTOR SEARCH • PGVECTOR</text>
+  </g>
+
+  <g transform="translate(62 414)" font-family="Manrope,Inter,sans-serif" font-size="14" font-weight="750">
+    <rect width="112" height="42" rx="14" fill="#fff" opacity=".09"/>
+    <text x="24" y="27" fill="#dce3f5">NEXT.JS</text>
+    <rect x="124" width="126" height="42" rx="14" fill="#fff" opacity=".09"/>
+    <text x="146" y="27" fill="#dce3f5">PGVECTOR</text>
+    <rect x="262" width="96" height="42" rx="14" fill="#fff" opacity=".09"/>
+    <text x="290" y="27" fill="#dce3f5">LLM</text>
+    <rect x="370" width="114" height="42" rx="14" fill="#fff" opacity=".09"/>
+    <text x="394" y="27" fill="#dce3f5">STRICT TS</text>
+  </g>
+</svg>

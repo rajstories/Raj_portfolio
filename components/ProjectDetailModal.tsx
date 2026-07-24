@@ -169,6 +169,17 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
 
           <div className="project-modal__divider" />
 
+          {project.metrics && project.metrics.length > 0 && (
+            <dl className="project-modal__metrics" aria-label={`${project.title} engineering metrics`}>
+              {project.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <dt>{metric.value}</dt>
+                  <dd>{metric.label}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+
           <section className="project-modal__overview" aria-labelledby={`${titleId}-overview`}>
             <span className="project-modal__round-icon project-modal__round-icon--blue"><Lightbulb aria-hidden="true" /></span>
             <div>
@@ -193,6 +204,38 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
               </div>
             </section>
           </div>
+
+          {project.demoVideos && project.demoVideos.length > 0 && (
+            <section className="project-modal__reels" aria-labelledby={`${titleId}-reels`}>
+              <div className="project-modal__reels-heading">
+                <span><Play aria-hidden="true" /></span>
+                <div>
+                  <h3 id={`${titleId}-reels`}>Motion Reel Demos</h3>
+                  <p>Selected production outputs from the motion system.</p>
+                </div>
+              </div>
+              <div className="project-modal__reel-grid">
+                {project.demoVideos.map((demo, index) => (
+                  <a
+                    key={demo.url}
+                    className="project-modal__reel-card"
+                    href={demo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Watch ${demo.title} on Instagram`}
+                  >
+                    <span className="project-modal__reel-number">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="project-modal__reel-play"><Play aria-hidden="true" /></span>
+                    <span className="project-modal__reel-copy">
+                      <strong>{demo.title}</strong>
+                      <small>{demo.description}</small>
+                    </span>
+                    <ArrowUpRight className="project-modal__reel-arrow" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section className="project-modal__audience" aria-labelledby={`${titleId}-audience`}>
             <Users aria-hidden="true" />

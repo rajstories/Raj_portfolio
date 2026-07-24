@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid RAG Engine</title>
+  <desc id="desc">A hybrid semantic and keyword retrieval pipeline feeding grounded document context into an answer engine.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#07101f"/>
+      <stop offset=".56" stop-color="#0b1730"/>
+      <stop offset="1" stop-color="#10142b"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#43e7ff"/>
+      <stop offset="1" stop-color="#315ef8"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".38"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" rx="34" fill="url(#background)"/>
+  <circle cx="1120" cy="70" r="220" fill="#315ef8" opacity=".11"/>
+  <circle cx="100" cy="680" r="245" fill="#8c52ff" opacity=".09"/>
+  <path d="M0 585C235 498 396 650 632 574s407-143 648-41v187H0Z" fill="#16203a" opacity=".42"/>
+
+  <g transform="translate(62 54)">
+    <rect width="264" height="44" rx="22" fill="#111c31" stroke="#2d4267"/>
+    <circle cx="24" cy="22" r="6" fill="#43e7ff"/>
+    <text x="43" y="28" fill="#c8d7f5" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">RETRIEVAL ENGINEERING</text>
+  </g>
+
+  <text x="64" y="174" fill="#fff" font-family="Arial, sans-serif" font-size="72" font-weight="850" letter-spacing="-3">Hybrid RAG</text>
+  <text x="64" y="238" fill="url(#cyan)" font-family="Arial, sans-serif" font-size="72" font-weight="850" letter-spacing="-3">Engine</text>
+  <text x="68" y="280" fill="#91a1bf" font-family="Arial, sans-serif" font-size="17" font-weight="650" letter-spacing="1.3">SEMANTIC DEPTH + EXACT-MATCH PRECISION</text>
+
+  <g transform="translate(64 334)" filter="url(#shadow)">
+    <rect width="318" height="244" rx="24" fill="#101c32" stroke="#263b61"/>
+    <text x="24" y="38" fill="#8293b3" font-family="Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="2">USER QUERY</text>
+    <rect x="22" y="58" width="274" height="66" rx="14" fill="#081321" stroke="#30496f"/>
+    <circle cx="52" cy="91" r="13" fill="none" stroke="#43e7ff" stroke-width="4"/>
+    <path d="m62 101 12 12" stroke="#43e7ff" stroke-width="4" stroke-linecap="round"/>
+    <text x="91" y="87" fill="#edf4ff" font-family="Arial, sans-serif" font-size="15" font-weight="700">What is attention</text>
+    <text x="91" y="107" fill="#edf4ff" font-family="Arial, sans-serif" font-size="15" font-weight="700">mechanism?</text>
+    <g transform="translate(22 150)">
+      <rect width="78" height="31" rx="15.5" fill="#173452"/>
+      <text x="39" y="21" fill="#5beaff" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="800">TOP-K 5</text>
+      <rect x="88" width="91" height="31" rx="15.5" fill="#28204c"/>
+      <text x="133.5" y="21" fill="#c7a5ff" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="800">PAGE-AWARE</text>
+      <rect x="189" width="85" height="31" rx="15.5" fill="#16352f"/>
+      <text x="231.5" y="21" fill="#70f5bd" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="800">GROUNDED</text>
+    </g>
+    <text x="22" y="218" fill="#6f819f" font-family="Arial, sans-serif" font-size="12" font-weight="650">QUERY → RETRIEVE → RANK → ANSWER</text>
+  </g>
+
+  <g transform="translate(432 326)">
+    <g filter="url(#shadow)">
+      <rect width="258" height="112" rx="22" fill="#0d2037" stroke="#2a7895"/>
+      <circle cx="48" cy="56" r="27" fill="#123b52"/>
+      <circle cx="42" cy="50" r="7" fill="#43e7ff"/>
+      <circle cx="57" cy="44" r="5" fill="#43e7ff"/>
+      <circle cx="58" cy="64" r="6" fill="#43e7ff"/>
+      <path d="m46 50 8-4m-8 8 8 7" stroke="#43e7ff" stroke-width="2"/>
+      <text x="88" y="49" fill="#fff" font-family="Arial, sans-serif" font-size="19" font-weight="800">Semantic Search</text>
+      <text x="88" y="74" fill="#7f9fb8" font-family="Arial, sans-serif" font-size="13" font-weight="650">FAISS · MiniLM embeddings</text>
+    </g>
+    <g transform="translate(0 132)" filter="url(#shadow)">
+      <rect width="258" height="112" rx="22" fill="#201739" stroke="#6345a8"/>
+      <circle cx="48" cy="56" r="27" fill="#302154"/>
+      <g fill="#bc8cff">
+        <rect x="34" y="40" width="28" height="5" rx="2.5"/>
+        <rect x="34" y="52" width="21" height="5" rx="2.5"/>
+        <rect x="34" y="64" width="25" height="5" rx="2.5"/>
+      </g>
+      <text x="88" y="49" fill="#fff" font-family="Arial, sans-serif" font-size="19" font-weight="800">Sparse Search</text>
+      <text x="88" y="74" fill="#a997c5" font-family="Arial, sans-serif" font-size="13" font-weight="650">Typesense · exact keywords</text>
+    </g>
+  </g>
+
+  <g stroke-linecap="round" fill="none">
+    <path d="M382 455h38" stroke="#375879" stroke-width="4"/>
+    <path d="m411 447 10 8-10 8" stroke="#43e7ff" stroke-width="4"/>
+    <path d="M690 382c58 0 58 89 104 89" stroke="#3d6f96" stroke-width="4"/>
+    <path d="M690 514c58 0 58-43 104-43" stroke="#6848e8" stroke-width="4"/>
+  </g>
+
+  <g transform="translate(794 326)" filter="url(#shadow)">
+    <rect width="420" height="244" rx="25" fill="#111a2f" stroke="#344365"/>
+    <rect x="24" y="22" width="372" height="42" rx="12" fill="#172541"/>
+    <text x="44" y="49" fill="#aebfe0" font-family="Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="1.5">FUSED + PAGE-INDEXED CONTEXT</text>
+    <g transform="translate(25 83)">
+      <rect width="238" height="48" rx="10" fill="#0b1526" stroke="#315ef8"/>
+      <rect x="14" y="13" width="5" height="22" rx="2.5" fill="#43e7ff"/>
+      <text x="32" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Page 07 · Transformer Paper</text>
+      <text x="32" y="38" fill="#7385a5" font-family="Arial, sans-serif" font-size="10">semantic score 0.91</text>
+      <rect y="59" width="292" height="48" rx="10" fill="#0b1526" stroke="#7957ed"/>
+      <rect x="14" y="72" width="5" height="22" rx="2.5" fill="#ba84ff"/>
+      <text x="32" y="81" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Exact phrase · “attention mechanism”</text>
+      <text x="32" y="97" fill="#7385a5" font-family="Arial, sans-serif" font-size="10">keyword rank 1</text>
+    </g>
+    <g transform="translate(318 95)">
+      <circle cx="38" cy="38" r="38" fill="url(#cyan)" opacity=".18"/>
+      <path d="M25 25h26v26H25zM31 18h26v26" fill="none" stroke="#60eaff" stroke-width="3"/>
+      <text x="38" y="100" fill="#6f819f" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="800">ANSWER</text>
+    </g>
+  </g>
+
+  <g transform="translate(432 616)">
+    <rect width="782" height="46" rx="23" fill="#0b1427" stroke="#263956"/>
+    <text x="27" y="29" fill="#43e7ff" font-family="Arial, sans-serif" font-size="13" font-weight="800">DENSE</text>
+    <text x="91" y="29" fill="#62728f" font-family="Arial, sans-serif" font-size="13">+</text>
+    <text x="117" y="29" fill="#bc8cff" font-family="Arial, sans-serif" font-size="13" font-weight="800">SPARSE</text>
+    <text x="184" y="29" fill="#62728f" font-family="Arial, sans-serif" font-size="13">+</text>
+    <text x="210" y="29" fill="#70f5bd" font-family="Arial, sans-serif" font-size="13" font-weight="800">HIERARCHICAL INDEXING</text>
+    <text x="411" y="29" fill="#62728f" font-family="Arial, sans-serif" font-size="13">→</text>
+    <text x="445" y="29" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="800">PRECISE, GROUNDED GENERATION</text>
+  </g>
+</svg>
