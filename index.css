@@ -1841,7 +1841,18 @@ a.experience-card__action:focus-visible {
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 20px 42px rgba(77, 63, 181, 0.15), 0 0 0 7px rgba(255, 255, 255, 0.35);
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
   transform: translate(-50%, -50%);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.creator-profile:hover,
+.creator-profile:focus-visible {
+  border-color: rgba(242, 56, 146, 0.4);
+  box-shadow: 0 24px 48px rgba(77, 63, 181, 0.2), 0 0 0 8px rgba(242, 56, 146, 0.08);
+  outline: none;
 }
 
 .creator-profile__avatar {

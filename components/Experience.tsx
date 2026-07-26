@@ -104,7 +104,7 @@ type AchievementStat = {
 
 const ACHIEVEMENT_STATS: AchievementStat[] = [
   { value: '15+', label: 'Hackathons', detail: 'Participated', tone: 'orange', icon: Trophy },
-  { value: '7×', label: 'National Hackathon', detail: 'Finalist', tone: 'blue', icon: Medal },
+  { value: '5×', label: 'National Hackathon', detail: 'Finalist', tone: 'blue', icon: Medal },
   { value: '2×', label: 'Hackathon', detail: 'Winner', tone: 'purple', icon: Award },
   { value: 'SIH’25', label: 'Grand Finale', detail: 'Runner Up', tone: 'green', icon: Star },
 ];
@@ -332,7 +332,13 @@ function CreatorAchievement() {
           ))}
         </div>
 
-        <div className="creator-profile">
+        <a
+          className="creator-profile"
+          href="https://www.instagram.com/storybyaish/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Story by Aish on Instagram"
+        >
           <div className="creator-profile__avatar" role="img" aria-label="Story by Aish profile portrait">
             <img src="/images/storybyaish-reference.png" alt="" />
           </div>
@@ -340,7 +346,7 @@ function CreatorAchievement() {
           <h4>@storybyaish <CheckCircle2 aria-label="Verified" /></h4>
           <p><strong>445K+</strong> Followers</p>
           <span>India’s No. 1 AI Influencer Page</span>
-        </div>
+        </a>
       </div>
     </section>
   );

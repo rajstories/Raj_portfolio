@@ -124,18 +124,16 @@ function HeroContent() {
   return (
     <div className="hero-content">
       <div className="hero-credential">
-        B.Tech CSE @ DTU
+        AI Engineer • B.Tech CSE @ DTU
       </div>
 
       <h1 className="hero-title">
         <span>Hi, I&apos;m Raj</span>
-        <span>Full-Stack &amp;</span>
-        <span>AI/ML Developer</span>
+        <span>AI Systems Engineer</span>
       </h1>
 
       <p className="hero-description">
-        I build intelligent, scalable and user-centric products that<br className="hero-description__break" />
-        solve <strong>real-world problems</strong> with clean code and impact.
+        Building AI systems, intelligent workflows, and data-driven software that solve real-world business problems.
       </p>
 
       <div className="hero-actions">
