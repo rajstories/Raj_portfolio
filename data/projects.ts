@@ -841,11 +841,13 @@ const FEATURED_PROJECT_SLUGS = [
   'cuda-kernel-optimization',
   'agentic-ai-data-agent',
   'food-delivery-prediction',
+  'snapclass',
   'reelvault',
   'threatgraph-splunk',
   'agentic-rag',
   'hybrid-rag-engine',
   'wardwatch-ai',
+  'deep-packet-inspection',
 ];
 
 export const FEATURED_PROJECTS = FEATURED_PROJECT_SLUGS
