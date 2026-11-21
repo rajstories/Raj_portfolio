@@ -21,7 +21,7 @@ const ACHIEVEMENTS: Achievement[] = [
     accent: 'violet',
   },
   {
-    title: '15× National Hackathon Finalist',
+    title: '5× National Hackathon Finalist',
     logo: '/assets/achievements/national-finalist-team-v2.png',
     accent: 'violet',
   },

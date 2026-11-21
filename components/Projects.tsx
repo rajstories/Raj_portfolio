@@ -78,7 +78,7 @@ const Projects = ({ onViewAll }: ProjectsProps) => {
           </div>
         </div>
 
-        <div className="projects-grid">
+        <div className={`projects-grid${FEATURED_PROJECTS.length % 3 === 2 ? ' projects-grid--double-tail' : ''}`}>
           {FEATURED_PROJECTS.map((project) => (
             <article
               key={project.id}
@@ -106,6 +106,17 @@ const Projects = ({ onViewAll }: ProjectsProps) => {
                 </div>
                 <h3 className="project-card__title">{project.title}</h3>
                 <p className="project-card__description">{project.description}</p>
+
+                {project.metrics && project.metrics.length > 0 && (
+                  <dl className="project-card__metrics" aria-label={`${project.title} project metrics`}>
+                    {project.metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <dt>{metric.value}</dt>
+                        <dd>{metric.label}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
 
                 <div className="project-card__tags">
                   {project.tags.map((tag) => <span key={tag}>#{tag}</span>)}

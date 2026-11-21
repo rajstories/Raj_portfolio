@@ -26,6 +26,10 @@ export interface Project {
   imageAlt: string;
   imageFit?: 'cover' | 'contain';
   tags: string[];
+  metrics?: Array<{
+    value: string;
+    label: string;
+  }>;
   technologies?: string[];
   keyFeatures?: string[];
   link?: string;
@@ -34,6 +38,11 @@ export interface Project {
   solution: string;
   audience: string;
   whyItMatters: string;
+  demoVideos?: Array<{
+    title: string;
+    description: string;
+    url: string;
+  }>;
   demoVideo?: string;
   prototypeVideo?: string;
   audioDemo?: string;
