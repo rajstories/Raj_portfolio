@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+<title id="title">Agentic AI Data Agent</title><desc id="desc">Ask in plain English. Query and transform.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1328"/><stop offset="1" stop-color="#20294b"/></linearGradient><linearGradient id="line"><stop stop-color="#c4b5fd"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+<rect width="960" height="540" rx="32" fill="url(#bg)"/>
+<circle cx="867" cy="66" r="205" fill="#c4b5fd" opacity=".055"/><circle cx="110" cy="500" r="180" fill="#c4b5fd" opacity=".04"/>
+<g font-family="Arial,sans-serif"><text x="58" y="76" fill="#c4b5fd" font-size="17" font-weight="700" letter-spacing="3">LANGGRAPH DATA SYSTEMS</text>
+<text x="55" y="148" fill="#fff" font-size="49" font-weight="800">Agentic AI Data Agent</text>
+<text x="58" y="193" fill="#c1cce0" font-size="21">Ask in plain English. Query and transform.</text>
+<path d="M200 302h550" stroke="url(#line)" stroke-width="3" opacity=".6"/>
+<g transform="translate(58 250)"><rect width="263" height="110" rx="18" fill="#15223d" stroke="#c4b5fd" stroke-opacity=".35"/><circle cx="30" cy="30" r="5" fill="#c4b5fd"/><text x="24" y="76" fill="#e7edf9" font-size="16" font-weight="700">INTENT ROUTER</text></g>
+<g transform="translate(349 250)"><rect width="263" height="110" rx="18" fill="#15223d" stroke="#c4b5fd" stroke-opacity=".35"/><circle cx="30" cy="30" r="5" fill="#c4b5fd"/><text x="24" y="76" fill="#e7edf9" font-size="16" font-weight="700">SQL ANALYST | ETL</text></g>
+<g transform="translate(640 250)"><rect width="263" height="110" rx="18" fill="#15223d" stroke="#c4b5fd" stroke-opacity=".35"/><circle cx="30" cy="30" r="5" fill="#c4b5fd"/><text x="24" y="76" fill="#e7edf9" font-size="16" font-weight="700">VALIDATED OUTPUT</text></g>
+<g transform="translate(58 407)"><rect width="263" height="65" rx="16" fill="#c4b5fd" opacity=".09"/><text x="131" y="40" text-anchor="middle" fill="#c4b5fd" font-size="21" font-weight="700">2 specialists</text></g>
+<g transform="translate(349 407)"><rect width="263" height="65" rx="16" fill="#c4b5fd" opacity=".09"/><text x="131" y="40" text-anchor="middle" fill="#c4b5fd" font-size="21" font-weight="700">3 model tiers</text></g>
+<g transform="translate(640 407)"><rect width="263" height="65" rx="16" fill="#c4b5fd" opacity=".09"/><text x="131" y="40" text-anchor="middle" fill="#c4b5fd" font-size="21" font-weight="700">CSV · JSON · Parquet</text></g>
+</g></svg>
