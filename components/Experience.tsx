@@ -38,20 +38,23 @@ type ExperienceItem = {
 const EXPERIENCE_ITEMS: ExperienceItem[] = [
   {
     id: 'lxdia-ai',
-    role: 'AI Engineering Intern',
+    role: 'Data & AI Engineering Intern',
     company: 'LXDIA AI Pvt. Limited',
     logo: 'lxdia',
     tone: 'orange',
-    date: 'Apr 2026 – Present',
+    date: 'Apr 2026 – Jul 2026',
+    duration: '4 months',
     certificateUrl: 'https://drive.google.com/file/d/1glz4WhHtA2_j08GlzGj6rDK04AruYYvl/view',
     bullets: [
-      'Built and deployed 4+ Machine Learning and AI models while orchestrating production LLM-agent workflows, improving end-to-end automation efficiency by 25%.',
-      'Engineered an AI content and voice-agent pipeline that reduced content preparation time by 50% and improved conversational response efficiency by 35%.',
+      'Real-Time Voice AI — Built an interruption-aware, full-duplex calling agent with LiveKit, Vobiz SIP, Silero VAD, Deepgram STT, LangGraph, and streaming TTS, keeping median response latency below 750 ms.',
+      'LLM Inference Optimization — Benchmarked vLLM and Groq-hosted Llama 3.3 70B using continuous batching, KV-cache management, and quantization to reduce time-to-first-token during concurrent calls.',
+      'Cloud Production Architecture — Containerized 4 decoupled services with Docker Compose and deployed them through GCP Compute Engine and Artifact Registry for reliable, multi-tenant production calls.',
+      'Multi-Agent Automation — Architected a 9-stage LangGraph workflow for trend discovery, hook mining, style adaptation, and automated verification, reducing manual script preparation time by 50%.',
     ],
   },
   {
     id: 'rocker-solar',
-    role: 'Software Developer Intern',
+    role: 'Data Science & AI / Software Developer Intern',
     company: 'Rocker Solar Solutions Pvt. Ltd.',
     logo: 'rocker',
     tone: 'blue',
@@ -62,6 +65,8 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
       'Developed an end-to-end CRM for leads, dealers, customers, warehouses, and finance operations, improving operational productivity by 40%.',
       'Built a 2D/3D solar-design platform for residential and commercial projects, reducing per-customer design and costing expenses by 30%.',
       'Collaborated across teams to ship scalable business applications with stronger workflow automation and user experience.',
+      'Technical Documentation RAG — Built an internal prototype across 15+ inverter O&M manuals and EPC drawings, raising retrieval Hit Rate@3 from 58% to 82% with hybrid BM25/dense search and cross-encoder re-ranking.',
+      'LLM Fine-Tuning — Adapted Llama 3 8B with Unsloth and 4-bit QLoRA on 120+ curated fault-resolution pairs to produce schema-compliant JSON troubleshooting reports with lower generation latency.',
     ],
   },
   {
