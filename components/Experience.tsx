@@ -43,7 +43,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     logo: 'lxdia',
     tone: 'orange',
     date: 'Apr 2026 – Present',
-    certificateUrl: 'https://drive.google.com/file/d/1fwjtGWu3rj2w5huSnDG2rg7bOGet7RfU/view?usp=sharing',
+    certificateUrl: 'https://drive.google.com/file/d/1glz4WhHtA2_j08GlzGj6rDK04AruYYvl/view',
     bullets: [
       'Built and deployed 4+ Machine Learning and AI models while orchestrating production LLM-agent workflows, improving end-to-end automation efficiency by 25%.',
       'Engineered an AI content and voice-agent pipeline that reduced content preparation time by 50% and improved conversational response efficiency by 35%.',
@@ -57,7 +57,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     tone: 'blue',
     date: 'Oct 2025 – Mar 2026',
     duration: '6 months',
-    certificateUrl: 'https://drive.google.com/file/d/1fk8er5oZYrAioXBSi8LEsIe-vi47i5ad/view?usp=sharing',
+    certificateUrl: 'https://drive.google.com/file/d/1s37j5brYVSLPLjjD6USflmF84uBe7qu7/view',
     bullets: [
       'Developed an end-to-end CRM for leads, dealers, customers, warehouses, and finance operations, improving operational productivity by 40%.',
       'Built a 2D/3D solar-design platform for residential and commercial projects, reducing per-customer design and costing expenses by 30%.',
